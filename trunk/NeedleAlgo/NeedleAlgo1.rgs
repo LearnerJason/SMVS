@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {99676163-E34D-419E-9577-B3569A6DA23F} = s 'NeedleAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{0A394B75-42C3-42C0-9C1A-BC8ED9FF5E76}'
+			Version = s '1.0'
+		}
+	}
+}

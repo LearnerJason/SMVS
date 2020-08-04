@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {E253A81F-E25E-47C1-9CF4-D465BEE43BB2} = s 'RubberMatAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{CAE47156-EA90-48E9-9880-50892CF02C8F}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,932 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\tinyxml">
+      <UniqueIdentifier>{b973ff9b-1401-470b-adfa-19edec55b5c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\tinyxml">
+      <UniqueIdentifier>{57a61b65-cb43-4e5e-94b1-217bd2d5ed79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui_control">
+      <UniqueIdentifier>{4bd189e6-e443-4b16-83cf-6d4fa320d2cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui_control">
+      <UniqueIdentifier>{0721a1bf-c413-463c-a3ea-8114fc3b35a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\LanguageOption">
+      <UniqueIdentifier>{974f9534-4fca-4527-a460-bf5f6681beae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\LanguageOption">
+      <UniqueIdentifier>{2ed3d7f9-8c74-41d9-833d-3b13e186311e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Camera">
+      <UniqueIdentifier>{7b172c0d-be0b-48e1-b673-5f9fb098585b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Camera">
+      <UniqueIdentifier>{6f4da0c6-0a6f-4b5b-998f-82a3906f9ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="安装包">
+      <UniqueIdentifier>{0c077fa9-bb43-4063-8ae9-e7a5ec759a47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\SMVS.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\background image.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\error.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\off.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\on.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\next.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\prior.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\login_bg.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\uac_bg.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\lang_bg.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\channel_dialog_bg.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_algorithm.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_camera.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_first.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_image_source.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_last.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_light.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_locked.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_next.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_previous.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_unlocked.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_zoom_in.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_zoom_out.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_rejector.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_ui_config.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_save_img.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_continous.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_single.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_left_arrow.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_right_arrow.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_close.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="第四版图检系统算子开发步骤.doc" />
+    <None Include="算子封装设计.ppt" />
+    <None Include="res\ch_continous_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_single_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_delete_img.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_save_all_img.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_move_down.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_move_up.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_add_algo.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_delete_algo.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\apply.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_refresh.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\open_file.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\refresh.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_add_model_img.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\example.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_add_model_img_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_delete_img_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_image_source_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_save_all_img_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_save_img_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_zoom_in_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_zoom_out_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_locked_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_unlocked_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\warning.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_left_arrow_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_right_arrow_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\SLAC 图检系统(试用版)操作说明.doc" />
+    <None Include="res\sys_config_dlg_bg2.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_camera_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_model.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_model_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_rejector_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_task.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_task_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_child_dlg_bg.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_language.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_language_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_login.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_setting.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_setting_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_uac.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_uac_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_help.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_chart_mgr.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_chart_mgr_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\spc_query.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\spc_export.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\spc_export_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_config.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_config_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\export file.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\import file.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\minus.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\plus.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\图检第四版语言包.doc" />
+    <None Include="..\CreateSetup.bat">
+      <Filter>安装包</Filter>
+    </None>
+    <None Include="..\SMVS License.txt">
+      <Filter>安装包</Filter>
+    </None>
+    <None Include="..\smvs setup.nsi">
+      <Filter>安装包</Filter>
+    </None>
+    <None Include="res\create_btn _gray.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\create_btn.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\create_btn_e.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\create_btn_e_gray.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\update_btn.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\update_btn_e.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\update_btn_e_gray.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\update_btn_gray.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\delete_btn.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\delete_btn_e.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\delete_btn_e_gray.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\delete_btn_gray.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\logged.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\help_bg.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_reset_stats_data.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_shift.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_shift_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\How to use Visual Studio2010 Performance Profiler.doc" />
+    <None Include="res\delete24.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\folder24.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\sys_light_selected.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\EXCLUDE.txt" />
+    <None Include="..\product_switch.bat">
+      <Filter>安装包</Filter>
+    </None>
+    <None Include="res\refresh_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_close_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\main_logged_in.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\create.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\delete.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\edit_region_ng.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\edit_region_ok.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\close_button.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_device_info.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_camera_pause.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_camera_run.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Users\slac_xf\Desktop\UI\zoom_in_5_24.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Users\slac_xf\Desktop\zoomin.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\zoomin.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="zoomin.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_reset_stats_data_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_camera_pause_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_camera_run_gray.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\cdp_reset.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\CH_Config1.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\CH_Config2.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ICO_error.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ICO_GRAY.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ICO_ON.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idr_main.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\toolbar_.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\cursor_drag_hand.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\cursor_drag_fingers_hand.cur">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SMVS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SMVSDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinxml\tinystr.h">
+      <Filter>头文件\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinxml\tinyxml.h">
+      <Filter>头文件\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelControlPanel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelCtrl.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboBoxCtrl.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="2DLineGraph.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="2DBarGraph.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_decorator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BtnCtrl.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UACDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LanguageDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraConfiguration.h">
+      <Filter>头文件\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Basler.h">
+      <Filter>头文件\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="bounded_buffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelConfigDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SliderControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SysConfigDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RejectorMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DBControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3ext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SqliteDB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CppSQLite3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SpcDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFileMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CrownCapTaskMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoSpy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LanguageProxy.h">
+      <Filter>头文件\LanguageOption</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShiftMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8conv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8conv_inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageProcessor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LightMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ColoredListCtrl.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="LineColorListCtrl.h">
+      <Filter>头文件\ui_control</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyModelDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyTaskDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMappingProxy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItemManagerDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PCI2310Device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PCI2312Device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SecretaryDevice.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NameModifierDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplySlResultDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LaneNameDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonST\BCMenu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonST\BtnST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonST\CeXDib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonST\ShadeButtonST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonST\WinXPButtonST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogWarningEx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WarningError.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayingManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN_VERSION\version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenDisplayOp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DongleKey.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dongle_API.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelEventMgrDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VcAdoSqlserver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogUpdateDatabase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PCI2330Device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StackWalker.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogCTypeOper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskChangePara.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicExcel\BasicExcel.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgProductInfoInput.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SMVS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SMVSDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinxml\tinystr.cpp">
+      <Filter>源文件\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinxml\tinyxml.cpp">
+      <Filter>源文件\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinxml\tinyxmlerror.cpp">
+      <Filter>源文件\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinxml\tinyxmlparser.cpp">
+      <Filter>源文件\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelControlPanel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelCtrl.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="ComboBoxCtrl.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="2DLineGraph.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="2DBarGraph.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="BtnCtrl.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UACDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LanguageDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Basler.cpp">
+      <Filter>源文件\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelConfigDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SysConfigDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RejectorMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CppSQLite3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SpcDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFileMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CrownCapTaskMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LanguageProxy.cpp">
+      <Filter>源文件\LanguageOption</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiftMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProcessor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LightMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ColoredListCtrl.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="LineColorListCtrl.cpp">
+      <Filter>源文件\ui_control</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyModelDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyTaskDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItemManagerDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PCI2310Device.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PCI2312Device.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SecretaryDevice.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NameModifierDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplySlResultDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LaneNameDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonST\BCMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonST\BtnST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonST\CeXDib.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonST\ShadeButtonST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonST\WinXPButtonST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogWarningEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeDef.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WarningError.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayingManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenDisplayOp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DongleKey.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelEventMgrDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VcAdoSqlserver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogUpdateDatabase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PCI2330Device.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StackWalker.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogCTypeOper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskChangePara.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicExcel\BasicExcel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgProductInfoInput.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SMVS.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

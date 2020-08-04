@@ -1,0 +1,62 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(294C8BC2-ABD9-4359-8CCC-571E21BCDC28),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface INailAlgo : IDispatch{
+	[id(1), local] HRESULT SetCurrentImage([in] LONG* pImg);
+	[id(2), local] HRESULT GetRegion([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(3), local] HRESULT GetErrorRegion([in] BYTE rgnID, [in,out] LONG* pErrorRgn);
+	[id(4), local] HRESULT GetInternalStats([in] BYTE rgnID, [in] LONG nMaxLen, [out, size_is(nMaxLen)] FLOAT* pStatsArray, [in, out] LONG* nActualLen);	
+	[id(5), local] HRESULT ReloadExternalFile([in] BSTR* bstrPath);
+	[id(6), local] HRESULT SetCurrentTaskName([in] BSTR* bstrTaskName);
+	[id(7), local] HRESULT SetSelfLearningTargetTaskName([in] BSTR* bstrTaskName);
+	[id(8), local] HRESULT GetGlueInjectorID([in,out] LONG* pInjectorID);
+	// Trainning 
+	[id(9), local] HRESULT SetSelfLearningParam([in] DWORD sampleSz, [in] BSTR* bstrParam);
+	[id(10), local] HRESULT SelectModelImage([in] LONG* pCrtImg, [in] BYTE productID);
+	[id(11), local] HRESULT DeleteModelImage([in] BYTE nIndex, [in] BYTE productID);
+	[id(12), local] HRESULT SaveResult([in] BSTR* strModelName, [in] BYTE productID);
+	[id(13), local] HRESULT AddModelImage([in] LONG* pImg, [in] BSTR* strFolder, [in] BYTE productID);
+	[id(14), local] HRESULT GetSelfLearningResult([in,out] LONG*  multiModelImag, [in, out] long* cMax, [in,out] float* vImgScore, [in] BYTE productID);
+	[id(15), local] HRESULT ResetSelfLearningRegion([in] BSTR* strRegionExtractPara);
+	[id(16), local] HRESULT GetSelfLearningRegion([in,out] LONG* pRgn);
+	[id(17), local] HRESULT ResetSelfLearningProcedure(void);
+
+	//NailAlgo
+	[id(18), local] HRESULT CenterRegionExtractAlgo([in] VARIANT* rgnID ,[in] VARIANT* pRowStart,[in] VARIANT* pColStart,[in] VARIANT* pRegWidth,[in] VARIANT* pRegHeight,[in] VARIANT* pThredLow,[in] VARIANT* pThredUpper,[in]VARIANT* pThredValue);
+	[id(19), local] HRESULT CenterRegionExtractAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(20), local] HRESULT DetectRegionLocationAlgo([in]VARIANT* rgnId,[in]VARIANT* pNum,[in]VARIANT* pOpeningSize,[in]VARIANT* pClosingSize);
+	[id(21), local] HRESULT DetectRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(22), local] HRESULT CurveDetectAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(23), local] HRESULT CurveDetectAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(24), local] HRESULT ThreadDetectAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(25), local] HRESULT ThreadDetectAlgoHelp([out,retval]BSTR* pHelpStr);
+
+
+
+};
+[
+	uuid(A9FFEC65-1712-491F-B12E-31780D313F63),
+	version(1.0),
+]
+library NailAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(2EB652F6-43D2-4F2F-8154-30D392EBAF86)		
+	]
+	coclass NailAlgo
+	{
+		[default] interface INailAlgo;
+	};
+};
+

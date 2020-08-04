@@ -1,0 +1,74 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(36D3E489-7D27-48FF-B5D3-734FF376DED7),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ICrownCapAlgo : IDispatch
+{
+	[id(1),local] HRESULT SetCurrentImage([in] LONG* pImg);
+	[id(2),local] HRESULT GetRegion([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(3), local] HRESULT GetErrorRegion([in] BYTE rgnID, [in,out] LONG* pErrorRgn);
+	[id(4),local] HRESULT GetInternalStats([in] BYTE rgnID, [in] LONG nMaxLen, [out, size_is(nMaxLen)] FLOAT* pStatsArray, [in, out] LONG* nActualLen);
+	[id(5), local] HRESULT ReloadExternalFile([in] BSTR* bstrPath);
+	//
+	[id(6), local] HRESULT SetSelfLearningParam([in] DWORD sampleSz, [in] BSTR* bstrParam);
+	[id(7), local] HRESULT SelectModelImage([in] LONG* pCrtImg, [in] BYTE productID);
+	[id(8), local] HRESULT DeleteModelImage([in] BYTE nIndex, [in] BYTE productID);
+	[id(9), local] HRESULT SaveResult([in] BSTR* strModelName, [in] BYTE productID);
+	[id(10), local] HRESULT AddModelImage([in] LONG* pImg, [in] BSTR* strFolder, [in] BYTE productID);
+	[id(11), local] HRESULT GetSelfLearningResult([in,out] LONG*  multiModelImag, [in, out] long* cMax, [in,out] float* vImgScore, [in] BYTE productID);
+	[id(12), local] HRESULT ResetSelfLearningRegion([in] BSTR* strRegionExtractPara);
+	[id(13), local] HRESULT GetSelfLearningRegion([in,out] LONG* pRgn);
+	[id(14), local] HRESULT ResetSelfLearningProcedure(void);
+
+	[id(15),local] HRESULT CrownCapLocationAlgo([in] VARIANT* rgnId, [in]  VARIANT* pThredLow, [in] VARIANT* pThredHigh,[in] VARIANT* pRadiusExt, [in] VARIANT* pRadius);
+	[id(16),local] HRESULT CrownCapLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(17), local] HRESULT CircleDetectAlgo([in] VARIANT* rgnID,[in] VARIANT* pEnhanceSize, [in] VARIANT* pEnhanceRatio, [in] VARIANT* pBlackThred, [in] VARIANT* pMinArea, [out,retval] VARIANT* pDetectNumber);
+	[id(18), local] HRESULT CircleDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(19),local] HRESULT CrownCapCircleRegionLocationAlgo([in] VARIANT* rgnId,[in] VARIANT* pRadius, [in] VARIANT* pRoiWith,[in]VARIANT* pChannel);
+	[id(20),local] HRESULT CrownCapCircleRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(21), local] HRESULT CircleOtherDetectAlgo([in] VARIANT* rgnID,[in] VARIANT* pRateAngle, [in] VARIANT* pBlackDist, [in] VARIANT* pErosionSize, [in] VARIANT* pMinArea, [in]  VARIANT* pChannel,[in] VARIANT* pErrorGrayDist, [out,retval] VARIANT* pDetectNumber);
+	[id(22), local] HRESULT CircleOtherDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(23), local] HRESULT CircleRateDetectAlgo([in] VARIANT* rgnID,[in] VARIANT* pBlackThred, [in] VARIANT* pSmoothSize, [out,retval] VARIANT* pCircleRate);
+	[id(24), local] HRESULT CircleRateDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(25), local] HRESULT CrownCapDetectAlgo([in] VARIANT* rgnID,[in] VARIANT* pBlackThred,[in] VARIANT* pARMin, [in] VARIANT* pARMax, [out,retval] VARIANT* pCrownAnglDiff);
+	[id(26), local] HRESULT CrownCapDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(27), local] HRESULT CrownCapLocationUseEdgeAlgo([in] VARIANT* rgnId, [in]  VARIANT* pThredLow, [in] VARIANT* pThredHigh,[in] VARIANT* pRadiusExt, [in] VARIANT* pRadius);
+	[id(28), local] HRESULT CrownCapLocationUseEdgeAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(29), local] HRESULT CrownCapLocationCH2Algo([in] VARIANT* rgnId, [in]  VARIANT* pGreediness, [in] VARIANT* pRadius,[in] VARIANT* pOffSetX, [in] VARIANT* pOffSetY);
+	[id(30), local] HRESULT CrownCapLocationCH2AlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(31), local] HRESULT CrownCapMatchingParaAlgo([in] VARIANT* rgnId, [in]  VARIANT* pGreediness, [in] VARIANT*pChannel, [out,retval] VARIANT* pMatchingResult);
+	[id(32), local] HRESULT CrownCapMatchingParaAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(33), local] HRESULT CrownCapPositionDistAlgo([in] VARIANT* rgnId, [in]  VARIANT* pShowRadius,[out,retval]VARIANT*pPositionDist);
+	[id(34), local] HRESULT CrownCapPositionDistAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(35), local] HRESULT CrownCapCenterImageDetectAlgo([in] VARIANT* rgnId,[in] VARIANT* pSmoothSize,[in] VARIANT* pDiffBlack,[in] VARIANT* pDiffWhite, [in] VARIANT* pErosionSize,[in]  VARIANT* pMinArea,[in]  VARIANT* pChannel,[out,retval] VARIANT* pDetectNumber);
+	[id(36), local] HRESULT CrownCapCenterImageDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(37), local] HRESULT CanLocationAlgo([in]VARIANT* rgnId, [in]VARIANT* pThredLow,[in] VARIANT* pRadius, [in]VARIANT* pRoiWith);
+	[id(38), local] HRESULT CanLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(39), local] HRESULT CanCircleDetectAlgo([in] VARIANT* rgnID,[in] VARIANT* pRateAngle, [in] VARIANT* pBlackDist, [in] VARIANT* pErosionSize, [in] VARIANT* pMinArea, [in]  VARIANT* pChannel,[in] VARIANT* pErrorGrayDist, [out,retval] VARIANT* pDetectNumber);
+	[id(40), local] HRESULT CanCircleDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(41), local] HRESULT SetCurrentTaskName([in] BSTR* bstrTaskName);
+	[id(42), local] HRESULT SetSelfLearningTargetTaskName([in] BSTR* bstrTaskName);
+};
+
+[
+	uuid(C212120A-98F3-41F3-9ECF-BC016F5948F3),
+	version(1.0),
+]
+library CrownCapAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(56AAE5FE-FE04-4A8F-83DF-A2DABE7BCFBC)		
+	]
+	coclass CrownCapAlgo
+	{
+		[default] interface ICrownCapAlgo;        
+	};
+};
+

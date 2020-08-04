@@ -1,0 +1,108 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(6F83A499-C0BD-4878-9CB6-085230E377DE),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPetAlgo : IDispatch
+{
+	[id(1), local] HRESULT SetCurrentImage([in] LONG* pImg);
+	[id(2), local] HRESULT GetRegion([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(3), local] HRESULT GetErrorRegion([in] BYTE rgnID, [in,out] LONG* pErrorRgn);
+	[id(4), local] HRESULT GetInternalStats([in] BYTE rgnID, [in] LONG nMaxLen, [out,size_is(nMaxLen)] FLOAT* pStatsArray, [in,out] LONG* nActualLen);
+	[id(5), local] HRESULT ReloadExternalFile([in] BSTR* bstrPath);
+
+	[id(6), local] HRESULT SetSelfLearningParam([in] DWORD sampleSz, [in] BSTR* bstrParam);
+	[id(7), local] HRESULT SelectModelImage([in] LONG* pCrtImg, [in] BYTE productID);
+	[id(8), local] HRESULT DeleteModelImage([in] BYTE nIndex, [in] BYTE productID);
+	[id(9), local] HRESULT SaveResult([in] BSTR* strModelName, [in] BYTE productID);
+	[id(10), local] HRESULT AddModelImage([in] LONG* pImg, [in] BSTR* strFolder, [in] BYTE productID);
+	[id(11), local] HRESULT GetSelfLearningResult([in,out] LONG*  multiModelImag, [in, out] long* cMax, [in,out] float* vImgScore, [in] BYTE productID);
+	[id(12), local] HRESULT ResetSelfLearningRegion([in] BSTR* strRegionExtractPara);
+	[id(13), local] HRESULT GetSelfLearningRegion([in,out] LONG* pRgn);
+	[id(14), local] HRESULT ResetSelfLearningProcedure(void);
+
+	[id(15), local] HRESULT CapLocationAlgo([in] VARIANT* rgnID, [in] VARIANT* pGrayThred, [in] VARIANT* pAreaThred,[in] VARIANT* pAreaThredHigh);
+	[id(16), local] HRESULT CapLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(17), local] HRESULT LevelLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pLevelRef, [in] VARIANT* pLevelRange, [in] VARIANT* pLevelWidth);
+	[id(18), local] HRESULT LevelLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(19), local] HRESULT LevelDetectionAlgo([in] VARIANT* rgnId, [in]VARIANT* pDynThr,[in] VARIANT* pAreaLimit, [in] VARIANT* pGrayThred, [out,retval]VARIANT* pAreaThred);
+	[id(20), local] HRESULT LevelDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(21), local] HRESULT CapSkewOrHighLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pCapLevelDiff, [in] VARIANT* pCapRectDiff, [in] VARIANT* pCapRectHeight, [in] VARIANT* pCapRectWidth);
+	[id(22), local] HRESULT CapSkewOrHighLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(23), local] HRESULT CapSkewDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pHeightDiff);
+	[id(24), local] HRESULT CapSkewDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(25), local] HRESULT CapHighDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pHeightDiff);
+	[id(26), local] HRESULT CapHighDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(27), local] HRESULT BottleNeckLocationAlgo([in] VARIANT* rgnId,[in]VARIANT* pLevelNeckDiff, [in]VARIANT* pNeckWidth, [in]VARIANT* pNeckHeight);
+	[id(28), local] HRESULT BottleNeckLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(29), local] HRESULT BottleNeckDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pGrayThred, [in] VARIANT* pAreaLimit, [out,retval] VARIANT* pDefectArea);
+	[id(30), local] HRESULT BottleNeckDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(31), local] HRESULT SecurityRingDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pGrayThred, [in] VARIANT* pAreaLimit, [out,retval] VARIANT* pDefectArea);
+	[id(32), local] HRESULT SecurityRingDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(33), local] HRESULT LabelLocationAlgo([in]VARIANT* rgnId, [in]VARIANT* pGrayThred, [in]VARIANT* pSmoothFactor, [in]VARIANT* pAreaThred);
+	[id(34), local] HRESULT LabelLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(35), local] HRESULT InverseLocationAlgo([in]VARIANT* rgnId, [in]VARIANT* pRectHeight, [in]VARIANT* pRectWidth);
+	[id(36), local] HRESULT InverseLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(37), local] HRESULT InverseDetectionAlgo([in] VARIANT* rgnId, [in]VARIANT* pGreediness, [out,retval] VARIANT* pMinScore);
+	[id(38), local] HRESULT InverseDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(39), local] HRESULT HighOrLowLabelLocationAlgo([in] VARIANT* rgnId, [in]VARIANT* pNormalLevel);
+	[id(40), local] HRESULT HighOrLowLabelLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(41), local] HRESULT HighOrLowLabelDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pHeightDiff);
+	[id(42), local] HRESULT SlantLabelLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRectHeight, [in] VARIANT* pRectWidth, [in] VARIANT* pCenterDiff, [in]VARIANT* pLabelRectDiff);
+	[id(43), local] HRESULT SlantLabelLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(44), local] HRESULT SlantLabelDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pHeightDiff);
+	[id(45), local] HRESULT SlantLabelDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(46), local] HRESULT HighOrLowLabelDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(47), local] HRESULT TotalBottlesLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(48), local] HRESULT TotalBottlesLocationAlgo([in] VARIANT* rgnId);
+	[id(49), local] HRESULT BottlesLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(50), local] HRESULT BottlesLocationAlgo([in] VARIANT* rgnId);
+	[id(51), local] HRESULT BottlesDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(52), local] HRESULT BottlesDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pThreshold, [in] VARIANT* pAreaSelect, [out,retval] VARIANT* pNumber);
+	[id(53), local] HRESULT PetCenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(54), local] HRESULT PetCenterLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pMinScore);
+	[id(55), local] HRESULT PetCircleRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(56), local] HRESULT PetCircleRegionLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth);
+	[id(57), local] HRESULT PetCircleRegionDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(58), local] HRESULT PetCircleRegionDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pDynThreshold, [in] VARIANT* pSelectArea, [out,retval] VARIANT* pDefectArea);
+	[id(59), local] HRESULT CodeLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(60), local] HRESULT CodeLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pThreshold, [in] VARIANT* pWidth, [in] VARIANT* pHeight, [in] VARIANT* pArea);
+	[id(61), local] HRESULT CodingLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(62), local] HRESULT CodingLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pThreshold, [in] VARIANT* pDilationCircle,[in]VARIANT* pSelect, [in] VARIANT* pWidth, [in] VARIANT* pHeight);
+	[id(63), local] HRESULT CodingDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(64), local] HRESULT CodingDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pNumber);
+	[id(65), local] HRESULT KunRunShanLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(66), local] HRESULT KunRunShanLocationAlgo([in] VARIANT* rgnId);
+	[id(67), local] HRESULT PetMatchingLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(68), local] HRESULT PetMatchingLocationAlgo([in] VARIANT* rgnId,[in]VARIANT* pRow1,[in] VARIANT* pColumn1,[in] VARIANT* pRow2,[in] VARIANT* pColumn2);
+	[id(69), local] HRESULT PetMatchingParaAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(70), local] HRESULT PetMatchingParaAlgo([in] VARIANT* rgnId,[in] VARIANT* pGreediness,[in] VARIANT* pRingOrOCR, [in]BSTR* bstrShm1File,[in] BSTR* bstrShm2File, [out,retval]VARIANT* pMatchingResult);
+	[id(71), local] HRESULT KunRunShanRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(72), local] HRESULT KunRunShanRegionLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRow1Length, [in] VARIANT* pColumn1Length, [in] VARIANT* pRow2Length, [in] VARIANT* pColumn2Length);
+	[id(73), local] HRESULT PetMatchingDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(74), local] HRESULT PetMatchingDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pThreshold, [in] VARIANT* pMask, [in] VARIANT* pSelectMin, [out,retval] VARIANT* pNumber);
+	[id(75), local] HRESULT SetCurrentTaskName([in] BSTR* bstrTaskName);
+	[id(76), local] HRESULT SetSelfLearningTargetTaskName([in] BSTR* bstrTaskName);
+};
+
+[
+	uuid(424999B7-7613-4957-A551-559381FBA9C9),
+	version(1.0),
+]
+library PetAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(BE648697-B4B6-4651-B833-23538C3A6743)		
+	]
+	coclass PetAlgo
+	{
+		[default] interface IPetAlgo;
+	};
+};
+

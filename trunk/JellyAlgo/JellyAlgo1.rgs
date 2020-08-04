@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {A7066785-70AF-4C33-BE9F-F34057E4574B} = s 'JellyAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{A7CB477C-BAC6-4956-8C71-9D052286D1CA}'
+			Version = s '1.0'
+		}
+	}
+}

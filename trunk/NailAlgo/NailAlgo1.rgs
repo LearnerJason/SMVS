@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {2EB652F6-43D2-4F2F-8154-30D392EBAF86} = s 'NailAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{A9FFEC65-1712-491F-B12E-31780D313F63}'
+			Version = s '1.0'
+		}
+	}
+}

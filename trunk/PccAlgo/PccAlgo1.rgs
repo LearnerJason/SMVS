@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {B6526FAD-08FA-46AE-B3DB-CEBC3970D34B} = s 'PccAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{8F17DEFB-4561-4FAC-977A-145B3A620BF5}'
+			Version = s '1.0'
+		}
+	}
+}

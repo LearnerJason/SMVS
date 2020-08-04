@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C3079160-9B10-41D6-B5B7-597489980590}</ProjectGuid>
+    <RootNamespace>SMVS</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <TrackFileAccess>true</TrackFileAccess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <TrackFileAccess>true</TrackFileAccess>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(PYLON_GENICAM_ROOT)\library\cpp\lib;$(PYLON_ROOT)\lib;$(PYLON_DEV_DIR)\lib\x64;$(BOOST_ROOT)\stage_x64_vs2010\lib;$(PYLON_GENICAM_ROOT)\library\CPP\Lib;$(HALCONROOT)/lib/x64-win64;$(ART_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista\ia64;$(ART_PCI2310_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista\ia64;$(ART_PCIE2330_ROOT)\Driver\INF\WIN32&amp;WIN64\ia64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(PYLON_GENICAM_ROOT)\library\cpp\include;$(PYLON_ROOT)\include;$(PYLON_DEV_DIR)\include;$(BOOST_ROOT);$(HALCONROOT)\include;$(ART_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista;$(ART_PCI2310_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista;$(ART_PCIE2330_ROOT)\Driver\INF\WIN32&amp;WIN64;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(PYLON_DEV_DIR)\lib\x64;$(BOOST_ROOT)\stage_x64_vs2010\lib;$(PYLON_GENICAM_ROOT)\library\CPP\Lib\win64_x64;$(HALCONROOT)/lib/x64-win64;$(ART_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista\ia64;$(ART_PCIE2330_ROOT)\Driver\INF\WIN32&amp;WIN64\ia64;$(ART_PCI2310_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista\ia64;C:\OpenCV\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(PYLON_DEV_DIR)\include;$(BOOST_ROOT);$(HALCONROOT)\include;$(ART_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista;$(ART_PCIE2330_ROOT)\Driver\INF\WIN32&amp;WIN64;$(ART_PCI2310_ROOT)\Driver\INF\Win2K&amp;XP&amp;Vista;c:\OpenCV\build\include;C:\OpenCV\build\include\opencv;C:\OpenCV\build\include\opencv2;$(IncludePath)</IncludePath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;TIXML_USE_STL;PCI2312;AL_PLASTIC_PRODUCT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4005;4996;4129;4172;4819</DisableSpecificWarnings>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(HALCONROOT)/lib/x64-win64;$(PYLON_ROOT)\lib\x64;$(PYLON_GENICAM_ROOT)\library\CPP\Lib\win64_x64;libboost_thread-vc100-mt-gd-1_55.lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(HALCONROOT)\lib\x64-win64\halconcpp10.lib;$(BOOST_ROOT)\stage_x64_vs2010\lib\libboost_thread-vc100-mt-gd-1_55.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX64</TargetMachine>
+      <DelayLoadDLLs>PylonBase_MD_VC100.dll;GCBase_MD_VC100_$(PYLON_GENICAM_VERSION).dll;GenApi_MD_VC100_$(PYLON_GENICAM_VERSION).dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <Profile>true</Profile>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMT.LIB</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/NODEFAULTLIB:"LIBCMT.LIB" %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>md $(TargetDir)ui_pictures
+copy $(ProjectDir)sqlite3.dll $(TargetDir)
+copy $(ProjectDir)Dongle_s.lib $(TargetDir)
+xcopy /s/e $(ProjectDir)res  $(TargetDir)ui_pictures /EXCLUDE:$(SolutionDir)EXCLUDE.txt
+copy $(ProjectDir)res\example.bmp  $(TargetDir)ui_pictures</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>IF EXIST  $(TargetDir)ui_pictures (rd /S /Q  $(TargetDir)ui_pictures)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <DisableSpecificWarnings>4005;4996;4129;4172;4819</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(PYLON_ROOT)\include;$(PYLON_GENICAM_ROOT)\library\CPP\include;$(PYLON_GENICAM_ROOT)\library\CPP\include\GenApi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <PreprocessorDefinitions>WIN64;_WINDOWS;NDEBUG;TIXML_USE_STL;PCI2312;AL_PLASTIC_PRODUCT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(HALCONROOT)/lib/x64-win64;$(PYLON_ROOT)\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(HALCONROOT)\lib\x64-win64\halconcpp10.lib</AdditionalDependencies>
+      <Profile>true</Profile>
+      <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMT.LIB</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>md $(TargetDir)ui_pictures
+copy $(ProjectDir)sqlite3.dll $(TargetDir)
+copy $(ProjectDir)Dongle_s.lib $(TargetDir)
+xcopy /s/e $(ProjectDir)res  $(TargetDir)ui_pictures /EXCLUDE:$(SolutionDir)EXCLUDE.txt
+copy $(ProjectDir)res\example.bmp  $(TargetDir)ui_pictures
+xcopy /s/e $(SolutionDir)$(Platform)\$(Configuration) $(SolutionDir)InstallPackage\ /y /EXCLUDE:$(SolutionDir)EXCLUDE.txt
+copy $(TargetDir)ui_pictures\example.bmp  $(SolutionDir)InstallPackage\ui_pictures
+xcopy /s/e "C:\smvs_mcs\HalconRT"  $(SolutionDir)InstallPackage\halcon_runtime\
+IF EXIST "C:\Program Files\Basler\pylon 5\Runtime\x64" (xcopy /s/e "C:\Program Files\Basler\pylon 5\Runtime\x64"  $(SolutionDir)InstallPackage\basler_runtime\x64\)</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>$(SolutionDir)SVN_VERSION\SubWCRev.exe $(SolutionDir) $(SolutionDir)SVN_VERSION\version_template.txt $(SolutionDir)SVN_VERSION\version.h
+IF EXIST $(SolutionDir)InstallPackage (rd /S /Q $(SolutionDir)InstallPackage)
+IF EXIST $(TargetDir)ui_pictures (rd /S /Q  $(TargetDir)ui_pictures)
+</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Users\slac_xf\Desktop\UI\zoom_in_5_24.ico" />
+    <None Include="..\..\..\Users\slac_xf\Desktop\zoomin.cur" />
+    <None Include="..\CreateSetup.bat" />
+    <None Include="..\EXCLUDE.txt" />
+    <None Include="..\How to use Visual Studio2010 Performance Profiler.doc" />
+    <None Include="..\product_switch.bat" />
+    <None Include="..\SMVS License.txt" />
+    <None Include="..\SLAC 图检系统(试用版)操作说明.doc" />
+    <None Include="..\smvs setup.nsi" />
+    <None Include="..\图检第四版语言包.doc" />
+    <None Include="ReadMe.txt" />
+    <None Include="res\apply.bmp" />
+    <None Include="res\background image.bmp" />
+    <None Include="res\cdp_reset.png" />
+    <None Include="res\channel_dialog_bg.bmp" />
+    <None Include="res\ch_add_model_img.png" />
+    <None Include="res\ch_add_model_img_gray.png" />
+    <None Include="res\ch_algorithm.png" />
+    <None Include="res\ch_camera.png" />
+    <None Include="res\ch_camera_pause.png" />
+    <None Include="res\ch_camera_pause_gray.png" />
+    <None Include="res\ch_camera_run.png" />
+    <None Include="res\ch_camera_run_gray.png" />
+    <None Include="res\ch_close.png" />
+    <None Include="res\ch_close_gray.png" />
+    <None Include="res\CH_Config1.bmp" />
+    <None Include="res\CH_Config2.bmp" />
+    <None Include="res\ch_continous.png" />
+    <None Include="res\ch_continous_gray.png" />
+    <None Include="res\ch_delete_img.png" />
+    <None Include="res\ch_delete_img_gray.png" />
+    <None Include="res\ch_device_info.png" />
+    <None Include="res\ch_first.png" />
+    <None Include="res\ch_image_source.png" />
+    <None Include="res\ch_image_source_gray.png" />
+    <None Include="res\ch_last.png" />
+    <None Include="res\ch_left_arrow.png" />
+    <None Include="res\ch_left_arrow_gray.png" />
+    <None Include="res\ch_light.png" />
+    <None Include="res\ch_locked.png" />
+    <None Include="res\ch_locked_gray.png" />
+    <None Include="res\ch_next.png" />
+    <None Include="res\ch_previous.png" />
+    <None Include="res\ch_rejector.png" />
+    <None Include="res\ch_reset_stats_data.png" />
+    <None Include="res\ch_reset_stats_data_gray.png" />
+    <None Include="res\ch_right_arrow.png" />
+    <None Include="res\ch_right_arrow_gray.png" />
+    <None Include="res\ch_save_all_img.png" />
+    <None Include="res\ch_save_all_img_gray.png" />
+    <None Include="res\ch_save_img.png" />
+    <None Include="res\ch_save_img_gray.png" />
+    <None Include="res\ch_single.png" />
+    <None Include="res\ch_single_gray.png" />
+    <None Include="res\ch_ui_config.png" />
+    <None Include="res\ch_unlocked.png" />
+    <None Include="res\ch_unlocked_gray.png" />
+    <None Include="res\ch_zoom_in.png" />
+    <None Include="res\ch_zoom_in_gray.png" />
+    <None Include="res\ch_zoom_out.png" />
+    <None Include="res\ch_zoom_out_gray.png" />
+    <None Include="res\close_button.bmp" />
+    <None Include="res\create.bmp" />
+    <None Include="res\create_btn _gray.bmp" />
+    <None Include="res\create_btn.bmp" />
+    <None Include="res\create_btn_e.bmp" />
+    <None Include="res\create_btn_e_gray.bmp" />
+    <None Include="res\cursor_drag_fingers_hand.cur" />
+    <None Include="res\cursor_drag_hand.cur" />
+    <None Include="res\delete.bmp" />
+    <None Include="res\delete24.bmp" />
+    <None Include="res\delete_btn.bmp" />
+    <None Include="res\delete_btn_e.bmp" />
+    <None Include="res\delete_btn_e_gray.bmp" />
+    <None Include="res\delete_btn_gray.bmp" />
+    <None Include="res\edit_region_ng.bmp" />
+    <None Include="res\edit_region_ok.bmp" />
+    <None Include="res\error.png" />
+    <None Include="res\example.bmp" />
+    <None Include="res\export file.bmp" />
+    <None Include="res\folder24.bmp" />
+    <None Include="res\help_bg.bmp" />
+    <None Include="res\ICO_error.ico" />
+    <None Include="res\ICO_GRAY.ico" />
+    <None Include="res\ICO_ON.ico" />
+    <None Include="res\idr_main.ico" />
+    <None Include="res\import file.bmp" />
+    <None Include="res\lang_bg.bmp" />
+    <None Include="res\logged.ico" />
+    <None Include="res\login_bg.bmp" />
+    <None Include="res\main_help.png" />
+    <None Include="res\main_language.png" />
+    <None Include="res\main_language_gray.png" />
+    <None Include="res\main_logged_in.png" />
+    <None Include="res\main_login.png" />
+    <None Include="res\main_setting.png" />
+    <None Include="res\main_setting_gray.png" />
+    <None Include="res\main_uac.png" />
+    <None Include="res\main_uac_gray.png" />
+    <None Include="res\minus.bmp" />
+    <None Include="res\next.png" />
+    <None Include="res\off.png" />
+    <None Include="res\on.png" />
+    <None Include="res\open_file.bmp" />
+    <None Include="res\plus.bmp" />
+    <None Include="res\prior.png" />
+    <None Include="res\refresh.png" />
+    <None Include="res\refresh_gray.png" />
+    <None Include="res\SMVS.ico" />
+    <None Include="res\spc_export.png" />
+    <None Include="res\spc_export_gray.png" />
+    <None Include="res\spc_query.png" />
+    <None Include="res\sys_add_algo.bmp" />
+    <None Include="res\sys_camera_selected.png" />
+    <None Include="res\sys_chart_mgr.png" />
+    <None Include="res\sys_chart_mgr_selected.png" />
+    <None Include="res\sys_child_dlg_bg.bmp" />
+    <None Include="res\sys_config.png" />
+    <None Include="res\sys_config_dlg_bg2.bmp" />
+    <None Include="res\sys_config_selected.png" />
+    <None Include="res\sys_delete_algo.bmp" />
+    <None Include="res\sys_light_selected.png" />
+    <None Include="res\sys_model.png" />
+    <None Include="res\sys_model_selected.png" />
+    <None Include="res\sys_move_down.bmp" />
+    <None Include="res\sys_move_up.bmp" />
+    <None Include="res\sys_refresh.bmp" />
+    <None Include="res\sys_rejector_selected.png" />
+    <None Include="res\sys_shift.png" />
+    <None Include="res\sys_shift_selected.png" />
+    <None Include="res\sys_task.png" />
+    <None Include="res\sys_task_selected.png" />
+    <None Include="res\toolbar_.bmp" />
+    <None Include="res\uac_bg.bmp" />
+    <None Include="res\update_btn.bmp" />
+    <None Include="res\update_btn_e.bmp" />
+    <None Include="res\update_btn_e_gray.bmp" />
+    <None Include="res\update_btn_gray.bmp" />
+    <None Include="res\warning.png" />
+    <None Include="res\zoomin.cur" />
+    <None Include="zoomin.cur" />
+    <None Include="第四版图检系统算子开发步骤.doc" />
+    <None Include="算子封装设计.ppt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\SVN_VERSION\version.h" />
+    <ClInclude Include="..\tinxml\tinystr.h" />
+    <ClInclude Include="..\tinxml\tinyxml.h" />
+    <ClInclude Include="2DBarGraph.h" />
+    <ClInclude Include="2DLineGraph.h" />
+    <ClInclude Include="AlgoSpy.h" />
+    <ClInclude Include="ApplySlResultDlg.h" />
+    <ClInclude Include="BasicExcel\BasicExcel.hpp" />
+    <ClInclude Include="Basler.h" />
+    <ClInclude Include="bounded_buffer.h" />
+    <ClInclude Include="BtnCtrl.h" />
+    <ClInclude Include="ButtonST\BCMenu.h" />
+    <ClInclude Include="ButtonST\BtnST.h" />
+    <ClInclude Include="ButtonST\CeXDib.h" />
+    <ClInclude Include="ButtonST\ShadeButtonST.h" />
+    <ClInclude Include="ButtonST\WinXPButtonST.h" />
+    <ClInclude Include="CameraConfiguration.h" />
+    <ClInclude Include="CameraMgrDlg.h" />
+    <ClInclude Include="ChannelConfigDlg.h" />
+    <ClInclude Include="ChannelControlPanel.h" />
+    <ClInclude Include="ChannelEventMgrDlg.h" />
+    <ClInclude Include="ChartCtrl.h" />
+    <ClInclude Include="ChartMgrDlg.h" />
+    <ClInclude Include="DialogCTypeOper.h" />
+    <ClInclude Include="DialogUpdateDatabase.h" />
+    <ClInclude Include="DialogWarningEx.h" />
+    <ClInclude Include="DisplayingManager.h" />
+    <ClInclude Include="DlgProductInfoInput.h" />
+    <ClInclude Include="DongleKey.h" />
+    <ClInclude Include="Dongle_API.h" />
+    <ClInclude Include="LaneNameDlg.h" />
+    <ClInclude Include="ColoredListCtrl.h" />
+    <ClInclude Include="ComboBoxCtrl.h" />
+    <ClInclude Include="ConfigFileMgrDlg.h" />
+    <ClInclude Include="CopyModelDlg.h" />
+    <ClInclude Include="CopyTaskDlg.h" />
+    <ClInclude Include="CppSQLite3.h" />
+    <ClInclude Include="DBControl.h" />
+    <ClInclude Include="FileMappingProxy.h" />
+    <ClInclude Include="LightMgrDlg.h" />
+    <ClInclude Include="LineColorListCtrl.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="ModelMgrDlg.h" />
+    <ClInclude Include="NameModifierDlg.h" />
+    <ClInclude Include="PCI2310Device.h" />
+    <ClInclude Include="PCI2312Device.h" />
+    <ClInclude Include="PCI2330Device.h" />
+    <ClInclude Include="RejectorMgrDlg.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ScreenDisplayOp.h" />
+    <ClInclude Include="SecretaryDevice.h" />
+    <ClInclude Include="SerialPort.h" />
+    <ClInclude Include="ShiftMgrDlg.h" />
+    <ClInclude Include="SpcDlg.h" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
+    <ClInclude Include="SqliteDB.h" />
+    <ClInclude Include="StackWalker.h" />
+    <ClInclude Include="SysConfigDlg.h" />
+    <ClInclude Include="ConfigurationManager.h" />
+    <ClInclude Include="HelpDlg.h" />
+    <ClInclude Include="ImageProcessor.h" />
+    <ClInclude Include="LabelCtrl.h" />
+    <ClInclude Include="LanguageDlg.h" />
+    <ClInclude Include="LanguageProxy.h" />
+    <ClInclude Include="LoginDlg.h" />
+    <ClInclude Include="SystemManager.h" />
+    <ClInclude Include="SliderControl.h" />
+    <ClInclude Include="SMVS.h" />
+    <ClInclude Include="SMVSDlg.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="CrownCapTaskMgrDlg.h" />
+    <ClInclude Include="TaskChangePara.h" />
+    <ClInclude Include="TaskMgrDlg.h" />
+    <ClInclude Include="TestItemManagerDlg.h" />
+    <ClInclude Include="TypeDef.h" />
+    <ClInclude Include="UACDlg.h" />
+    <ClInclude Include="ui_decorator.h" />
+    <ClInclude Include="utf8conv.h" />
+    <ClInclude Include="utf8conv_inl.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="VcAdoSqlserver.h" />
+    <ClInclude Include="WarningError.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\tinxml\tinystr.cpp" />
+    <ClCompile Include="..\tinxml\tinyxml.cpp" />
+    <ClCompile Include="..\tinxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\tinxml\tinyxmlparser.cpp" />
+    <ClCompile Include="2DBarGraph.cpp" />
+    <ClCompile Include="2DLineGraph.cpp" />
+    <ClCompile Include="ApplySlResultDlg.cpp" />
+    <ClCompile Include="BasicExcel\BasicExcel.cpp" />
+    <ClCompile Include="Basler.cpp" />
+    <ClCompile Include="BtnCtrl.cpp" />
+    <ClCompile Include="ButtonST\BCMenu.cpp" />
+    <ClCompile Include="ButtonST\BtnST.cpp" />
+    <ClCompile Include="ButtonST\CeXDib.cpp" />
+    <ClCompile Include="ButtonST\ShadeButtonST.cpp" />
+    <ClCompile Include="ButtonST\WinXPButtonST.cpp" />
+    <ClCompile Include="CameraMgrDlg.cpp" />
+    <ClCompile Include="ChannelConfigDlg.cpp" />
+    <ClCompile Include="ChannelControlPanel.cpp" />
+    <ClCompile Include="ChannelEventMgrDlg.cpp" />
+    <ClCompile Include="ChartCtrl.cpp" />
+    <ClCompile Include="ChartMgrDlg.cpp" />
+    <ClCompile Include="DialogCTypeOper.cpp" />
+    <ClCompile Include="DialogUpdateDatabase.cpp" />
+    <ClCompile Include="DialogWarningEx.cpp" />
+    <ClCompile Include="DisplayingManager.cpp" />
+    <ClCompile Include="DlgProductInfoInput.cpp" />
+    <ClCompile Include="DongleKey.cpp" />
+    <ClCompile Include="LaneNameDlg.cpp" />
+    <ClCompile Include="ColoredListCtrl.cpp" />
+    <ClCompile Include="ComboBoxCtrl.cpp" />
+    <ClCompile Include="ConfigFileMgrDlg.cpp" />
+    <ClCompile Include="CopyModelDlg.cpp" />
+    <ClCompile Include="CopyTaskDlg.cpp" />
+    <ClCompile Include="CppSQLite3.cpp" />
+    <ClCompile Include="LightMgrDlg.cpp" />
+    <ClCompile Include="LineColorListCtrl.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="ModelMgrDlg.cpp" />
+    <ClCompile Include="NameModifierDlg.cpp" />
+    <ClCompile Include="PCI2310Device.cpp" />
+    <ClCompile Include="PCI2312Device.cpp" />
+    <ClCompile Include="PCI2330Device.cpp" />
+    <ClCompile Include="RejectorMgrDlg.cpp" />
+    <ClCompile Include="ScreenDisplayOp.cpp" />
+    <ClCompile Include="SecretaryDevice.cpp" />
+    <ClCompile Include="SerialPort.cpp" />
+    <ClCompile Include="ShiftMgrDlg.cpp" />
+    <ClCompile Include="SpcDlg.cpp" />
+    <ClCompile Include="StackWalker.cpp" />
+    <ClCompile Include="SysConfigDlg.cpp" />
+    <ClCompile Include="HelpDlg.cpp" />
+    <ClCompile Include="ImageProcessor.cpp" />
+    <ClCompile Include="LabelCtrl.cpp" />
+    <ClCompile Include="LanguageDlg.cpp" />
+    <ClCompile Include="LanguageProxy.cpp" />
+    <ClCompile Include="LoginDlg.cpp" />
+    <ClCompile Include="SystemManager.cpp" />
+    <ClCompile Include="SliderControl.cpp" />
+    <ClCompile Include="SMVS.cpp" />
+    <ClCompile Include="SMVSDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CrownCapTaskMgrDlg.cpp" />
+    <ClCompile Include="TaskChangePara.cpp" />
+    <ClCompile Include="TaskMgrDlg.cpp" />
+    <ClCompile Include="TestItemManagerDlg.cpp" />
+    <ClCompile Include="TypeDef.cpp" />
+    <ClCompile Include="UACDlg.cpp" />
+    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="VcAdoSqlserver.cpp" />
+    <ClCompile Include="WarningError.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SMVS.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="SMVS.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

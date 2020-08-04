@@ -1,0 +1,58 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(6214CB4A-7672-436E-B883-196C2265DB85),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ICanOutsideAlgo : IDispatch
+{
+	[id(1),local] HRESULT SetCurrentImage([in] LONG* pImg);
+	[id(2),local] HRESULT GetRegion([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(3),local] HRESULT GetErrorRegion([in] BYTE rgnID, [in,out] LONG* pErrorRgn);
+	[id(4),local] HRESULT GetInternalStats([in] BYTE rgnID, [in] LONG nMaxLen, [out, size_is(nMaxLen)] FLOAT* pStatsArray, [in, out] LONG* nActualLen);		
+	[id(5), local] HRESULT ReloadExternalFile([in] BSTR* bstrPath);
+	[id(6), local] HRESULT SetCurrentTaskName([in] BSTR* bstrTaskName);
+	//	
+	[id(7), local] HRESULT SetSelfLearningParam([in] DWORD sampleSz, [in] BSTR* bstrParam);
+	[id(8), local] HRESULT SelectModelImage([in] LONG* pCrtImg, [in] BYTE productID);
+	[id(9), local] HRESULT DeleteModelImage([in] BYTE nIndex, [in] BYTE productID);
+	[id(10), local] HRESULT SaveResult([in] BSTR* strModelName, [in] BYTE productID);
+	[id(11), local] HRESULT AddModelImage([in] LONG* pImg, [in] BSTR* strFolder, [in] BYTE productID);
+	[id(12), local] HRESULT GetSelfLearningResult([in,out] LONG*  multiModelImag, [in, out] long* cMax, [in,out] float* vImgScore, [in] BYTE productID);
+	[id(13), local] HRESULT ResetSelfLearningRegion([in] BSTR* strRegionExtractPara);
+	[id(14), local] HRESULT GetSelfLearningRegion([in,out] LONG* pRgn);
+	[id(15), local] HRESULT ResetSelfLearningProcedure(void);
+	[id(16), local] HRESULT SetSelfLearningTargetTaskName([in] BSTR* bstrTaskName);
+	[id(17), local] HRESULT SetChannelIndex([in] LONG nChIndex);
+	[id(18), local] HRESULT ReceivePrerequisiteParam([in] LONG* pCameraIndex, [in] LONG* pHomMat2DForFlag, [in] LONG* pLeftCol4ImgsInStd, [in] LONG* pRightCol4ImgsInStd);
+	[id(19), local] HRESULT SetCommonParameters([in] LONG* pStandardImg, [in] LONG* pFlagModelRegion, [in] LONG* pSeamRegionInStdImg, [in] LONG* pStdModelRegion, [in] LONG* pStitchedImgWidthUnion, [in] LONG* pModelIDs, [in] LONG* pModelRows, [in] LONG* pModelCols, [in] LONG* pFlagModelID, [in] LONG* pSortedFlagColsInStdImg, [in] LONG* pStichingParamCol, [in] LONG* pCanRegWidth, [in] LONG* pMappedImgWidths);
+	[id(20), local] HRESULT SetDetectROI([in] LONG* pDetectRoi);
+	[id(21), local] HRESULT SetPreprocessedImg([in] LONG* pMappedImg, [in] LONG* pMappedGrayImg);
+
+	[id(22),local] HRESULT CenterLocationAlgo([in] VARIANT* rgnID, [in] VARIANT* pRadius, [in] VARIANT* pMinScore);
+	[id(23),local] HRESULT CenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(24),local] HRESULT RectangleLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* centerRow, [in] VARIANT* centerCol, [in] VARIANT* nHalfWid, [in] VARIANT* nHalfHeight);
+	[id(25),local] HRESULT RectangleLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(26),local] HRESULT DetectError([in] VARIANT* rgnId, [in] VARIANT* pFlatRgnThresh, [in] VARIANT* pFlatRgnMinArea, [in] VARIANT* pTextRgnThresh, [in] VARIANT* pTextRgnMinArea,[out,retval] VARIANT* pDetectArea);
+	[id(27),local] HRESULT DetectErrorHelp([out,retval] BSTR* pHelpStr);
+};
+[
+	uuid(DEB81F9B-9B63-4027-9314-407167E2EC73),
+	version(1.0),
+]
+library CanOutsideAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(C7CF32D0-5A06-4172-B2D8-6A715C63657F)		
+	]
+	coclass CanOutsideAlgo
+	{
+		[default] interface ICanOutsideAlgo;
+	};
+};
+

@@ -1,0 +1,293 @@
+// EoeAlgo.idl : EoeAlgo 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(EoeAlgo.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(88A26EAF-5D85-493E-BFB2-E2BF8AEAEE21),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IEoeAlgo : IDispatch
+{
+	[id(1), local] HRESULT SetCurrentImage([in] LONG* pImg);
+	[id(2), local] HRESULT GetRegion([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(3), local] HRESULT GetErrorRegion([in] BYTE rgnID, [in,out] LONG* pErrorRgn);
+	[id(18),local] HRESULT GetWhiteErrorRegion([in] BYTE rgnID,  [in,out] LONG* pWhiteErrorRgn);
+	[id(4), local] HRESULT GetInternalStats([in] BYTE rgnID, [in] LONG nMaxLen, [out, size_is(nMaxLen)] FLOAT* pStatsArray, [in, out] LONG* nActualLen);	
+	[id(5), local] HRESULT ReloadExternalFile([in] BSTR* bstrPath);
+	[id(6), local] HRESULT SetCurrentTaskName([in] BSTR* bstrTaskName);
+	[id(7), local] HRESULT SetSelfLearningTargetTaskName([in] BSTR* bstrTaskName);
+	[id(8), local] HRESULT GetGlueInjectorID([in,out] LONG* pInjectorID);
+
+	// Trainning 
+	[id(201),local] HRESULT GetInterImgs([in] BYTE rgnID,  [in,out] LONG* pInterImgs);
+	// Trainning 
+	[id(9), local] HRESULT SetSelfLearningParam([in] DWORD sampleSz, [in] BSTR* bstrParam);
+	[id(10), local] HRESULT SelectModelImage([in] LONG* pCrtImg, [in] BYTE productID);
+	[id(11), local] HRESULT DeleteModelImage([in] BYTE nIndex, [in] BYTE productID);
+	[id(12), local] HRESULT SaveResult([in] BSTR* strModelName, [in] BYTE productID);
+	[id(13), local] HRESULT AddModelImage([in] LONG* pImg, [in] BSTR* strFolder, [in] BYTE productID);
+	[id(14), local] HRESULT GetSelfLearningResult([in,out] LONG*  multiModelImag, [in, out] long* cMax, [in,out] float* vImgScore, [in] BYTE productID);
+	[id(15), local] HRESULT ResetSelfLearningRegion([in] BSTR* strRegionExtractPara);
+	[id(16), local] HRESULT GetSelfLearningRegion([in,out] LONG* pRgn);
+	[id(17), local] HRESULT ResetSelfLearningProcedure(void);
+	
+	[id(20), local] HRESULT GetRegionEx([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(21), local] HRESULT GetRegionExTest([in] BYTE rgnID, [in,out] LONG* pRgn);
+	//Location Algo
+	[id(25), local] HRESULT CenterLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pMinScore);
+	[id(26), local] HRESULT CenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(27), local] HRESULT CenterLocationAlgo1([in] VARIANT* rgnID, [in] VARIANT* pRadius, [in] VARIANT* pMinScore);
+	[id(28), local] HRESULT CenterLocationAlgo1Help([out,retval] BSTR* pHelpStr);
+	[id(29), local] HRESULT CenterLocationAlgoHS( [in]VARIANT* rgnId,  [in]VARIANT* pRadius, [in] VARIANT* pThresholdLow, [in]VARIANT* pOutlierRemoverSize);
+	[id(30), local] HRESULT CenterLocationAlgoHSHelp([out,retval]BSTR* pHelpStr);
+	[id(31), local] HRESULT CenterRectangleLocationAlgoHS( [in]VARIANT* rgnId, [in] VARIANT* pThresholdLow, [in]VARIANT* pOutlierRemoverSize);
+	[id(32), local] HRESULT CenterRectangleLocationAlgoHSHelp([out,retval]BSTR* pHelpStr);
+	[id(33), local] HRESULT CenterLocationAlgoUsePointFitting([in]VARIANT* rgnID, [in]VARIANT* pSearchRegRow, [in]VARIANT* pSearchRegCol, [in]VARIANT* pOuterRadius, [in]VARIANT* pRoiWidth, [in]VARIANT* pScanLineNum, [in]VARIANT* pScanLineDirection, [in]VARIANT* pTransition, [in]VARIANT* pPointSelection, [in]VARIANT* pSigma, [in]VARIANT* pThreshold);
+	[id(34), local] HRESULT CenterLocationAlgoUsePointFittingHelp([out,retval]BSTR* pHelpStr);
+
+	//Matching Algo
+	[id(41),local] HRESULT MatchingParaAlgo([in] VARIANT* rgnId, [in]  VARIANT* pGreediness, [in] VARIANT*pRingOrOCR,[in] BSTR* bstrShm1File, [in] BSTR* bstrShm2File,[out,retval] VARIANT* pMatchingResult);
+	[id(42),local] HRESULT MatchingParaAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(43),local] HRESULT MatchingParaMinScoreAlgo([in] VARIANT* rgnId, [in]  VARIANT* pMinScore, [in]  VARIANT* pNumLevels, [in]  VARIANT* pGreediness, [in] VARIANT*pRingOrOCR,[in] BSTR* bstrShm1File, [in] BSTR* bstrShm2File,[out,retval] VARIANT* pMatchingResult);
+	[id(44),local] HRESULT MatchingParaMinScoreAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(45),local] HRESULT RotatingAngleDetectAlgo([in]VARIANT* rgnId,[in] VARIANT* pMaskSize,[in]VARIANT* pBlackThredLow,[in]VARIANT* pEdgeType,[in]VARIANT* pEdgeDist,[in] VARIANT* pDefectSize, [out,retval] VARIANT* pDetectAngle);
+	[id(46),local] HRESULT RotatingAngleDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	
+	//Region Location Algo
+	[id(51),local] HRESULT CircleRegionLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth);
+	[id(52),local] HRESULT CircleRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(53),local] HRESULT CircleRegionAngleAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth,[in] VARIANT* pDriftAngle1,[in] VARIANT* pDriftAngle2);
+	[id(54),local] HRESULT CircleRegionAngleAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(55),local] HRESULT DetectRegionLocationAlgo([in] VARIANT* rgnId,[in] VARIANT* pErosionSize,[in] VARIANT* pRingOrOCR, [in]BSTR* bstrRgnFile,[in] BSTR* bstrExtractRgnFile);
+	[id(56),local] HRESULT DetectRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(57),local] HRESULT DetectRegionLocationAlgoOCR([in] VARIANT* rgnId,[in] VARIANT* pErosionSize,[in] VARIANT* pRingOrOCR, [in]BSTR* bstrRgnFile,[in] BSTR* bstrExtractRgnFile);
+	[id(58),local] HRESULT DetectRegionLocationAlgoOCRHelp([out,retval] BSTR* pHelpStr);
+	[id(59),local] HRESULT DetectRegionLocationExtractOCRAlgo([in]VARIANT* rgnId,[in]VARIANT* pRadius,[in]VARIANT* pErosionSize, [in]BSTR* bstrOcrRgnFile);
+	[id(60),local] HRESULT DetectRegionLocationExtractOCRAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(61),local] HRESULT CircleRegionLocationAlgo1([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth);
+	[id(62),local] HRESULT CircleRegionLocationAlgo1Help([out,retval] BSTR* pHelpStr);
+	[id(63), local] HRESULT CircleRegionAngleAlgo1([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth,[in]  VARIANT* pDriftAngle1, [in] VARIANT* pDriftAngle2);	
+	[id(64), local] HRESULT CircleRegionAngleAlgo1Help( [out,retval]BSTR* pHelpStr);
+	
+	[id(67), local] HRESULT BoundaryRegionLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth);
+	[id(68), local] HRESULT BoundaryRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	//Ring Region Detection
+	[id(81),local] HRESULT CurlOptimizeAlgo([in] VARIANT* rgnId, [in] VARIANT* pFreq_start, [in] VARIANT* pFreq_cutoff,[in] VARIANT* pWinType, [in] VARIANT* pDefectType, [in] VARIANT* pWaveThreshold, [in] VARIANT* pMinArea, [out,retval] VARIANT* pDetectNumber);
+	[id(82),local] HRESULT CurlOptimizeAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(83),local] HRESULT CurlDetectAlgo1([in] VARIANT* rgnId, [in] VARIANT* pNumPart, [in] VARIANT* pThresholdValue, [in] VARIANT* pGrayValue, [out,retval] VARIANT* pDetectArea);
+	[id(84),local] HRESULT CurlDetectAlgo1Help([out,retval] BSTR* pHelpStr);
+	[id(85),local] HRESULT CurlDetectAlgo2([in] VARIANT* rgnId, [in] VARIANT* pNumPart, [in] VARIANT* pThresholdValue, [in] VARIANT* pGrayValue, [out,retval] VARIANT* pDetectArea);
+	[id(86),local] HRESULT CurlDetectAlgo2Help([out,retval] BSTR* pHelpStr);
+	[id(87),local] HRESULT UVCurlAlgo([in] VARIANT* rgnId, [in] VARIANT* pNumPart, [in] VARIANT* pThresholdValue, [in] VARIANT* pGrayValue,[in]VARIANT* pMeanGrayValue, [out,retval] VARIANT* pDetectArea);
+	[id(88),local] HRESULT UVCurlAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(91), local] HRESULT AnnularRotaDynThresholdAlgo([in] VARIANT* rgnId, [in]VARIANT* pRotaAngle,[in] VARIANT* pDynThresh, [in] VARIANT* pDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(92), local] HRESULT AnnularRotaDynThresholdAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(93), local] HRESULT CurlNoCompoundAlgo([in]VARIANT* rgnId,[out,retval]VARIANT*pGrayValueMean );
+	[id(94), local] HRESULT CurlNoCompoundAlgoHelp ([out,retval]BSTR* pHelpStr);
+	[id(95), local] HRESULT GSurfaceAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackThred, [in] VARIANT* pBlackAreaThred, [in] VARIANT* pWhiteThred, [in] VARIANT* pWhiteAreaThred, [out,retval] VARIANT* pDetectArea);
+	[id(96), local] HRESULT GSurfaceAlgoHelp([out,retval] BSTR* pHelpStr);	
+	[id(97), local] HRESULT GLineAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pBlackThredLow, [in] VARIANT* pBlackDefectSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pWhiteThredLow, [in] VARIANT* pWhiteDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(98), local] HRESULT GLineAlgoHelp([out,retval] BSTR* pHelpStr);	
+	[id(99), local] HRESULT GLineNewAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pBlackThredLow, [in] VARIANT* pBlackThredHigh, [in] VARIANT* pBlackDefectSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pWhiteThredLow,[in] VARIANT* pWhiteThredHigh, [in] VARIANT* pWhiteDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(100), local] HRESULT GLineNewAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(101), local] HRESULT EdgeAlgo([in] VARIANT* rgnId, [in] VARIANT* pEdgeThred, [in] VARIANT* pDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(102), local] HRESULT EdgeAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(103), local] HRESULT GContoursinkAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackThred, [in] VARIANT* pBlackAreaThred, [in] VARIANT* pWhiteThred, [in] VARIANT* pWhiteAreaThred, [out,retval] VARIANT* pDetectArea);
+	[id(104), local] HRESULT GContoursinkAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(105), local] HRESULT DynThresholdAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(106), local] HRESULT DynThresholdAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(107), local] HRESULT DynThresholdAlgoBlack([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [out,retval] VARIANT* pDetectArea);
+	[id(108), local] HRESULT DynThresholdAlgoBlackHelp([out,retval] BSTR* pHelpStr);
+	[id(109), local] HRESULT DynThresholdAlgoBlackNumber([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize,  [out,retval] VARIANT* pDetectNumber);
+	[id(110), local] HRESULT DynThresholdAlgoBlackNumberHelp([out,retval] BSTR* pHelpStr);
+	[id(111), local] HRESULT DynThresholdAlgoWhite([in] VARIANT* rgnId, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(112), local] HRESULT DynThresholdAlgoWhiteHelp([out,retval] BSTR* pHelpStr);
+	[id(113), local] HRESULT DynThresholdAlgoWhiteNumber([in] VARIANT* rgnId, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectNumber);
+	[id(114), local] HRESULT DynThresholdAlgoWhiteNumberHelp([out,retval] BSTR* pHelpStr);
+	[id(115), local] HRESULT DynThresholdAlgoBlackWhiteNumber([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectNumber);
+	[id(116), local] HRESULT DynThresholdAlgoBlackWhiteNumberHelp([out,retval] BSTR* pHelpStr);
+	[id(117), local] HRESULT DynThresholdAlgoOCR([in] VARIANT* rgnId, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize,[in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize,[in]VARIANT* pErosionSize, [out,retval] VARIANT* pDetectArea);
+	[id(118), local] HRESULT DynThresholdAlgoOCRHelp([out,retval] BSTR* pHelpStr);
+	[id(119), local] HRESULT DerivateGaussDetectAlgo([in] VARIANT* rgnId, [in] VARIANT* pMaskSize,[in] VARIANT* pSmoothSize, [in] VARIANT* pDefectType, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(120), local] HRESULT DerivateGaussDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(121), local] HRESULT BlackDetectAlgo([in]VARIANT* rgnId,[in] VARIANT* pBlackMaskSize, [in]VARIANT* pSeriousBlackPointDynThresh,[in] VARIANT* pBlackThresh,[in]VARIANT* pSeriousBlackPointSize,[out,retval] VARIANT* pDetectArea);
+	[id(122), local] HRESULT BlackDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(123), local] HRESULT MinMaxGrayDetectAlgo([in]VARIANT* rgnId,  [in] VARIANT* pBlackThresh, [in] VARIANT* pSeriousBlackPointSize,  [in] VARIANT* pWhiteThresh, [in] VARIANT* pSeriousWhitePointSize,[out,retval] VARIANT* pDetectArea);
+	[id(124), local] HRESULT MinMaxGrayDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(125), local] HRESULT AnnularRotaDynThresholdAlgoBW([in] VARIANT* rgnId, [in] VARIANT* pRotaAngle, [in] VARIANT* pBlackThredLow, [in]VARIANT* pBlackDefectSize, [in] VARIANT* pWhiteThredLow, [in] VARIANT* pWhiteDefectSize, [out,retval]VARIANT* pDetectArea);
+	[id(126), local] HRESULT AnnularRotaDynThresholdAlgoBWHelp([out,retval] BSTR* pHelpStr);
+	[id(127), local] HRESULT SectorRegionLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth,[in]  VARIANT* pDriftAngle1, [in] VARIANT* pDriftAngle2);	
+	[id(128), local] HRESULT SectorRegionLocationAlgoHelp( [out,retval]BSTR* pHelpStr);
+	[id(129), local] HRESULT SectorRegionLocationAlgo1([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth,[in]  VARIANT* pDriftAngle1, [in] VARIANT* pDriftAngle2);	
+	[id(130), local] HRESULT SectorRegionLocationAlgo1Help( [out,retval]BSTR* pHelpStr);
+	//R Detection
+
+	[id(141), local] HRESULT RRegionDetectAlgo([in]VARIANT* rgnId,[in]VARIANT* pSmoothPara,[in]VARIANT* pMaskSize,[in]VARIANT* pThredLow,[in]VARIANT* pARMin,[out,retval]VARIANT*pDetectArea );
+	[id(142), local] HRESULT RRegionDetectAlgoHelp ([out,retval]BSTR* pHelpStr);
+	[id(143), local] HRESULT RRegionDetectBigAlgo([in]VARIANT* rgnId,[in]VARIANT* pDiffWhite,[in]VARIANT* pARMax ,[out,retval]VARIANT*pDetectArea );
+	[id(144), local] HRESULT RRegionDetectBigAlgoHelp ([out,retval]BSTR* pHelpStr);
+
+
+	[id(145), local] HRESULT DetectOcrDistOffsetAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDistanceOffset);
+	[id(146), local] HRESULT DetectOcrDistOffsetAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(147),local]  HRESULT DetectRegionLocationAlgoTabOCR([in] VARIANT* rgnId,[in] VARIANT* pErosionSize, [in]BSTR* bstrRgnFile);
+	[id(148),local]  HRESULT DetectRegionLocationAlgoTabOCRHelp([out,retval] BSTR* pHelpStr);
+	[id(149), local] HRESULT DynThresholdAlgoTabOCR([in] VARIANT* rgnId, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize,[in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize,[in]VARIANT* pErosionSize, [out,retval] VARIANT* pDetectArea);
+	[id(150), local] HRESULT DynThresholdAlgoTabOCRHelp([out,retval] BSTR* pHelpStr);
+	[id(151), local] HRESULT MultOcrDetectAlgo([in]VARIANT* rgnId, [in]VARIANT* pGreediness,[in] BSTR* bstrShm1File,[in] BSTR* bstrShm2File, [in]BSTR* bstrShm3File,[in] BSTR* bstrShm4File,[in]VARIANT* pSeriousBlackPointDynThresh, [in]VARIANT* pSeriousBlackPointSize,[in] VARIANT* pSeriousWhitePointDynThresh,[in] VARIANT* pSeriousWhitePointSize,[in]VARIANT* pErosionSize,[in]VARIANT* pLineDetectFlage,[in]VARIANT* pLowContrast,[in]VARIANT* pDilationSize, [out,retval] VARIANT* pDetectArea);
+	[id(152), local] HRESULT MultOcrDetectAlgoHelp([out,retval]  BSTR* pHelpStr);	
+		 
+	[id(500), local] HRESULT MultOcrDetectExcludeTabAlgo([in]VARIANT* rgnId, [in]VARIANT* pGreediness,[in] BSTR* bstrShm1File,[in] BSTR* bstrShm2File, [in]BSTR* bstrShm3File,[in] BSTR* bstrShm4File,[in] BSTR* bstrExtractRgnFile,[in]VARIANT* pSeriousBlackPointDynThresh, [in]VARIANT* pSeriousBlackPointSize,[in] VARIANT* pSeriousWhitePointDynThresh,[in] VARIANT* pSeriousWhitePointSize,[in]VARIANT* pErosionSize,[in]VARIANT* pLineDetectFlage,[in]VARIANT* pLowContrast,[in]VARIANT* pDilationSize, [out,retval] VARIANT* pDetectArea);
+	[id(501), local] HRESULT MultOcrDetectExcludeTabAlgoHelp([out,retval]  BSTR* pHelpStr);	
+
+	[id(220), local]HRESULT PrintErrorDetectOcrAlgo([in]VARIANT* rgnId,[in]VARIANT* pLowContrast,[in]VARIANT* pHeightContrast,[in]VARIANT* pDilationSize,[out,retval] VARIANT* pDetectArea);
+	[id(221), local]HRESULT PrintErrorDetectOcrAlgoHelp([out,retval] BSTR* pHelpStr);
+
+
+
+	[id(153), local] HRESULT GlueInjectorDetectAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [in] VARIANT* pGrayDiffValue, [out,retval] VARIANT* pDetectArea);
+	[id(154), local] HRESULT GlueInjectorDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(155), local] HRESULT GlueDetectAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [in] VARIANT* pGrayDiffValue, [out,retval] VARIANT* pDetectArea);
+	[id(156), local] HRESULT GlueDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(157), local] HRESULT GlueInjectorIDDetectAlgo([in] VARIANT* rgnId, [in]VARIANT* pBlackPointThresh, [in]VARIANT* pWhitePointThresh, [in]VARIANT* pMeanGrayDiffValue, [in]VARIANT* pDeviationGrayDiffValue,[in] VARIANT* pMaxID,[out,retval] VARIANT* pDetectID);
+	[id(158), local] HRESULT GlueInjectorIDDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(159), local] HRESULT GlueInjectorIDDetectAlgo1([in]VARIANT* rgnId,[in]VARIANT* pRefreshIndex,[in]VARIANT* pStartIndex, [in]VARIANT* pTotalInjectorNum,[out,retval]VARIANT* pDetectID);
+	[id(160), local] HRESULT GlueInjectorIDDetectAlgo1Help([out,retval]BSTR* pHelpStr);
+	//
+	[id(161), local] HRESULT EccentricDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pDistance);
+	[id(162), local] HRESULT EccentricDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(163), local] HRESULT InnerCircleLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pLowThred, [in] VARIANT* pHighThred, [in] VARIANT* pLowLength, [in] VARIANT* pHighLength);
+	[id(164), local] HRESULT InnerCircleLocationAlgoHelp([out,retval] VARIANT* pHelpStr);
+	[id(165), local] HRESULT ReprintDetectionAlgo([in] VARIANT* rgnId, [out,retval] VARIANT* pGrayDiff);
+	[id(166), local] HRESULT ReprintDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(167), local] HRESULT WLineDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pMaskSize, [in] VARIANT* pThredLow, [in] VARIANT* pThredUpper, [out,retval]VARIANT* pDefectArea);
+	[id(168), local] HRESULT WLineDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(169), local] HRESULT WSpotDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pSpotMaskSize, [in] VARIANT* pSpotThred, [out,retval] VARIANT* pDefectArea);
+	[id(170), local] HRESULT WSpotDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(171), local] HRESULT WBlockDetectionAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlockThred, [in] VARIANT* pMinArea, [out,retval] VARIANT* pDefectArea);
+	[id(172), local] HRESULT WBlockDetectionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(173), local] HRESULT ArrowDistOffsetAlgo([in]VARIANT* rgnId, [in] VARIANT* pLowThred,[in] VARIANT* pErosionSize,[in] VARIANT* pBlackPointUpSize, [out,retval]VARIANT* pDistanceOffset);
+	[id(174), local] HRESULT ArrowDistOffsetAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(178), local] HRESULT RingLocationForColorAlgoHS( [in]VARIANT* rgnId,[in] VARIANT* pColorTransType,[in] VARIANT* pChannelSelect,[in]VARIANT* pRadius, [in] VARIANT* pThresholdLow, [in]VARIANT* pOutlierRemoverSize,[in]VARIANT* pRegionWidth);
+	[id(179), local] HRESULT RingLocationForColorAlgoHSHelp([out,retval]BSTR* pHelpStr);
+	[id(180), local] HRESULT CenterLocationForColorAlgoHS( [in]VARIANT* rgnId,[in] VARIANT* pColorTransType,[in] VARIANT* pChannelSelect,[in]VARIANT* pRadius, [in] VARIANT* pThresholdLow, [in]VARIANT* pOutlierRemoverSize);
+	[id(181), local] HRESULT CenterLocationForColorAlgoHSHelp([out,retval]BSTR* pHelpStr);
+	[id(182), local] HRESULT CurlOptimizeForColorAlgo([in] VARIANT* rgnId, [in] VARIANT* pColorTransType,[in] VARIANT* pChannelSelect,[in] VARIANT* pFreq_start,[in] VARIANT* pFreqCutoff,[in] VARIANT* pWinType,[in] VARIANT* pDefectType, [in] VARIANT* pWaveThreshold, [in] VARIANT* pMinArea, [out,retval] VARIANT* pDetectNumber);
+	[id(183), local] HRESULT CurlOptimizeForColorAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(184), local] HRESULT DynThresholdForColorAlgo([in] VARIANT* rgnId, [in] VARIANT* pColorTransType,[in] VARIANT* pChannelSelect, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(185), local] HRESULT DynThresholdForColorAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(186), local] HRESULT EdgeForColorAlgo([in] VARIANT* rgnId, [in] VARIANT* pColorTransType,[in] VARIANT* pChannelSelect, [in] VARIANT* pEdgeThred, [in] VARIANT* pDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(187), local] HRESULT EdgeForColorAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(188), local] HRESULT AnnularRotaDynThresholdForColorAlgo([in] VARIANT* rgnId, [in] VARIANT* pColorTransType,[in] VARIANT* pChannelSelect, [in]VARIANT* pRotaAngle,[in] VARIANT* pDynThresh, [in] VARIANT* pDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(189), local] HRESULT AnnularRotaDynThresholdForColorAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(190), local] HRESULT AnnularRotaDynThresholdForColorAlgo1([in]VARIANT* rgnId, [in]VARIANT* pColorTransType, [in]VARIANT* pChannelSelect,[in]VARIANT* pRotaAngle,[in]VARIANT* pDynThresh, [in]VARIANT* pDefectSize, [out,retval] VARIANT* pDetectArea);
+    [id(191), local] HRESULT AnnularRotaDynThresholdForColorAlgo1Help([out,retval] BSTR* pHelpStr);
+	[id(192), local] HRESULT GetCurrentLocationXY([out,retval] BSTR* bstrLocationXY);
+	[id(193), local] HRESULT GetCenterLocation([out,retval] BSTR* bstrLocationXY);
+
+	//Rivet Diameter Detection
+	[id(194), local] HRESULT RivetCenterLocationAlgo([in] VARIANT* rgnID, [in] VARIANT* pRadius, [in] VARIANT* pMinScore,[in]VARIANT* pThredScore);
+	[id(195), local] HRESULT RivetCenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(196), local] HRESULT RivetDiameterMeasureAlgo([in]VARIANT* rgnId,[in]VARIANT* pOffset,[in]VARIANT* pSigma,[in]VARIANT* pThredLower, [in]VARIANT* pThredUpper,[in]VARIANT* pCircularityValue,[out,retval]VARIANT* pDiameter);
+	[id(197), local] HRESULT RivetDiameterMeasureAlgoHelp([out,retval]  BSTR* pHelpStr);
+	[id(198), local] HRESULT RivetDiameterMeasureAlgo1([in]VARIANT* rgnId,[in]VARIANT* pOffset,[out,retval]VARIANT* pDiameter);
+	[id(199), local] HRESULT RivetDiameterMeasureAlgo1Help([out,retval]  BSTR* pHelpStr);
+
+	//
+	//[id(300), local] HRESULT CalibrationRegionExtract([in]VARIANT* rgnId ,[in]VARIANT* pCircleIndex,[in]VARIANT* pCircleRadius);
+	//[id(301), local] HRESULT CalibrationRegionExtractHelp([out,retval] BSTR* pHelpStr);
+
+
+	[id(400),local] HRESULT WeldAngleDetectAlgo([in]VARIANT* rgnId, [out,retval] VARIANT* pDetectAngle);
+	[id(401),local] HRESULT WeldAngleDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(402),local] HRESULT WeldAngleDetectGrayAlgo([in]VARIANT* rgnId,[in] VARIANT* pAlgoSelect,[in] VARIANT* pWeldWidth,[in] VARIANT* pSmoothSize, [out,retval] VARIANT* pDetectAngle);
+	[id(403),local] HRESULT WeldAngleDetectGrayAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(404),local] HRESULT WeldAngleDetectWhiteGlueAlgo([in]VARIANT* rgnId, [in]VARIANT* pDynThreshold, [in]VARIANT* pAspectRationThresh,[in] VARIANT* pClosingMaskWidth,[out,retval] VARIANT* pDetectAngle);
+	[id(405),local] HRESULT WeldAngleDetectWhiteGlueAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(406),local] HRESULT WeldAngleDetectGlueAlgo([in]VARIANT* rgnId,[in]VARIANT* pBlackWhite,[in]VARIANT* pEnhancePara,[in]VARIANT* pDynThreshold, [in]VARIANT* pAspectRationThresh,[in] VARIANT* pClosingMaskWidth,[out,retval] VARIANT* pDetectAngle);
+	[id(407),local] HRESULT WeldAngleDetectGlueAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(408), local] HRESULT WeldWhiteGlueRegExtractAlgo([in] VARIANT* rgnId, [in]VARIANT* pBlackMaskSize, [out,retval] VARIANT* pWeldRegArea);
+	[id(409), local] HRESULT WeldWhiteGlueRegExtractAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(410), local] HRESULT WeldRegSelectAlgo([in]VARIANT* rgnId, [in]VARIANT* pWeldSelection);
+	[id(411), local] HRESULT WeldRegSelectAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(412), local] HRESULT PhaseCorrelationAlgo([in]VARIANT* rgnId, [in]VARIANT* pMode, [out,retval]VARIANT* pAngle);
+	[id(413), local] HRESULT PhaseCorrelationAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(414), local] HRESULT SetCurrentTaskName2([in]BSTR* bstrTaskName,[in]BSTR* bstrChName,[in]BSTR* bstrChNameWithoutCameraIndex);
+	[id(415),local] HRESULT PhaseCorrelationRectangularRegionAlgo([in] VARIANT* rgnId, [in] VARIANT* pWidthPlaceSet,[in] VARIANT* pHeightPlaceSet, [in] VARIANT* pRegionHeight, [in] VARIANT* pRegionWidth);
+	[id(416),local] HRESULT PhaseCorrelationRectangularRegionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(417),local] HRESULT PhaseCorrelationRectangularAlgo([in]VARIANT* rgnId, [in]VARIANT* pMode, [in]VARIANT* pScore, [out,retval]VARIANT* pCalibrationImageID);
+	[id(418),local] HRESULT	PhaseCorrelationRectangularAlgoHelp([out,retval]BSTR* pHelpStr);
+	[id(419),local] HRESULT CenterRectangleLocationAlgoSobel([in]VARIANT* rgnId, [in]VARIANT* pSobelSize, [in]VARIANT* pDisplayMode, [in]VARIANT* pThresholdLow, [in]VARIANT* pOutlierRemoverSize);
+    [id(420),local] HRESULT CenterRectangleLocationAlgoSobelHelp([out,retval] BSTR* pHelpStr);
+	[id(421), local] HRESULT EdgeDetectRectanglePixelWiseAlgo([in]VARIANT* rgnId, [in]VARIANT* pDefectType, [in]VARIANT* pThresholdLight, [in]VARIANT* pThresholdDark, [in]VARIANT* pSharpness, [in]VARIANT* pDefectSizeLight, [in] VARIANT* pDefectSizeDark, [out,retval]VARIANT* pDetectArea);
+    [id(422), local] HRESULT EdgeDetectRectanglePixelWiseAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(423), local] HRESULT CurlOptimizeRectangleAlgo([in]VARIANT* rgnId, [in]VARIANT* pPartsWidth, [in]VARIANT* pFreqStart, [in]VARIANT* pFreqCutoff, [in]VARIANT* pDefectType, [in]VARIANT* pWaveThreshold, [in]VARIANT* pMinArea, [out,retval]VARIANT* pDetectNumber);
+	[id(424), local] HRESULT CurlOptimizeRectangleAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(425), local] HRESULT TabDeviationDetectAlgo([in]VARIANT* rgnId, [in]VARIANT* pThreshold, [in]VARIANT* pMinGray, [in]VARIANT* pMaxGray, [in]VARIANT* pTabLength,[out,retval]VARIANT* pDistanceDifference);
+	[id(426), local] HRESULT TabDeviationDetectAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(427), local] HRESULT DerivateGaussDetectComprehensiveAlgo([in]VARIANT* rgnId, [in]VARIANT* pSigma, [in]VARIANT* pLowerLimit, [in]VARIANT* pUpperLimit, [in]VARIANT* pDisplayMode, [in]VARIANT* pFeatureNumber, [in]VARIANT* pDefectSize, [out, retval]VARIANT* pDetectArea);
+	[id(428), local] HRESULT DerivateGaussDetectComprehensiveAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(429), local] HRESULT DetectRegionExcludingArbitraryRegionAlgo([in]VARIANT* rgnId, [in]VARIANT* pChangingSize, [in]VARIANT* pDoRegistration, [in]BSTR* bstrOcrRgnFile);
+	[id(430), local] HRESULT DetectRegionExcludingArbitraryRegionAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(431), local] HRESULT DetectRegionRectangleLocationAlgo([in]VARIANT* rgnId, [in]VARIANT* pChangingSize, [in]VARIANT* pDoMatch, [in]BSTR* bstrExtractRgnFile);
+	[id(432), local] HRESULT DetectRegionRectangleLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(433), local] HRESULT RegistrateRectangleAlgo([in]VARIANT* rgnId, [in]VARIANT* pSigma, [in]VARIANT* pThreshold, [out,retval]VARIANT* pCalibrationImageID);
+	[id(434), local] HRESULT RegistrateRectangleAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(435), local] HRESULT CenterRectangleLocationAlgoInnerEdge([in]VARIANT* rgnId, [in]VARIANT* pLidWidth, [in]VARIANT* pLidHeight, [in]VARIANT* pThreshold, [in]VARIANT* pSecondThreshold, [in]VARIANT* pOutlierRemoverSize);
+	[id(436), local] HRESULT CenterRectangleLocationAlgoInnerEdgeHelp([out, retval]BSTR* pHelpStr);
+	[id(437), local] HRESULT CenterRectangleSecondLocationAlgo([in]VARIANT* rgnId, [in]VARIANT* pDilationSize, [in]VARIANT* pThreshold, [in]VARIANT* pOutlierRemoverSize);
+	[id(438), local] HRESULT CenterRectangleSecondLocationAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(439), local] HRESULT AngleRegistrationAlgo([in]VARIANT* rgnId, [in]VARIANT* pPatternWidth, [in]VARIANT* pThreshold, [out, retval]VARIANT* pAngle);
+	[id(440), local] HRESULT AngleRegistrationAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(441), local] HRESULT DiscontinuousLineDetectionAlgo([in]VARIANT* rgnId, [in]VARIANT* pThreshold, [in]VARIANT* pRequiredLineLength, [out, retval]VARIANT* pBrokenLineNumber);
+   	[id(442), local] HRESULT DiscontinuousLineDetectionAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(443), local] HRESULT TabDeviationDetectIndistinctEdgeAlgo([in]VARIANT* rgnId, [in]VARIANT* pThreshold, [in]VARIANT* pMinGray, [in]VARIANT* pMaxGray, [in]VARIANT* pTabLength,[out,retval]VARIANT* pDistanceDifference);
+	[id(444), local] HRESULT TabDeviationDetectIndistinctEdgeAlgoHelp([out, retval] BSTR* pHelpStr);
+	[id(445), local] HRESULT RectangleRoundRegionAlgo([in]VARIANT* rgnId, [in]VARIANT* pChangingSize, [in]VARIANT* pRoiWidth, [in]VARIANT* pChamferRadius);
+	[id(446), local] HRESULT RectangleRoundRegionAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(447), local] HRESULT RectangleEdgeRegionAlgo([in]VARIANT* rgnId, [in]VARIANT* pChangingSize, [in]VARIANT* pRoiWidth, [in]VARIANT* pChamferRadius);
+	[id(448), local] HRESULT RectangleEdgeRegionAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(449), local] HRESULT DefectDetectionRectanglePixelWiseAlgo([in]VARIANT* rgnId, [in]VARIANT* pThreshold, [in]VARIANT* pSharpness, [in]VARIANT* pDefectSize, [out, retval]VARIANT* pDefectArea);
+	[id(450), local] HRESULT DefectDetectionRectanglePixelWiseAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(451), local] HRESULT DefectDetectionRectanglePixelWiseDarkLightAlgo([in]VARIANT* rgnId, [in]VARIANT* pSharpness, [in]VARIANT* pThresholdLight, [in]VARIANT* pDefectSizeLight, [in]VARIANT* pThresholdDark, [in]VARIANT* pDefectSizeDark, [out, retval]VARIANT* pDefectArea);
+	[id(452), local] HRESULT DefectDetectionRectanglePixelWiseDarkLightAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(453), local] HRESULT AnnularRotaDynThresholdAlgoRotateImage([in]VARIANT* rgnId, [in]VARIANT* pRotaAngle, [in]VARIANT* pThresholdDark, [in]VARIANT* pDefectSizeDark, [in]VARIANT* pThresholdLight, [in]VARIANT* pDefectSizeLight, [out,retval]VARIANT* pDefectArea);
+	[id(454), local] HRESULT AnnularRotaDynThresholdAlgoRotateImageHelp([out, retval]BSTR* pHelpStr);
+    [id(455), local] HRESULT RRegionDetectExcludeEdgeAlgo( [in]VARIANT* rgnId, [in]VARIANT* pEdgeThresh, [in]VARIANT* pEdgeLength, [in]VARIANT* pErrorThresh, [in]VARIANT* pARMin,[out, retval]VARIANT*pDetectArea );
+    [id(456), local] HRESULT RRegionDetectExcludeEdgeAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(457), local] HRESULT AngleRegistrationAlgo1([in]VARIANT* rgnId, [in]VARIANT* pClosingSize, [in]VARIANT* pThreshold, [out, retval]VARIANT* pAngle);
+    [id(458), local] HRESULT AngleRegistrationAlgo1Help([out, retval]BSTR* pHelpStr);
+	[id(459), local] HRESULT AngleRegistrationRotateImageAlgo([in]VARIANT* rgnId, [in]VARIANT* pDynThreshold, [in]VARIANT* pAreaThreshold, [in]VARIANT* pTabLength, [in]VARIANT* pParalleTab,[out, retval]VARIANT* pAngle);
+	[id(460), local] HRESULT AngleRegistrationRotateImageAlgoHelp([out, retval]BSTR* pHelpStr);
+	[id(461), local] HRESULT TabDeviationDetectionHoughAlgo([in]VARIANT* rgnId, [in]VARIANT* pGaussThreshold, [in]VARIANT* pHoughThreshold, [in]VARIANT* pDisplayEdge, [out, retval]VARIANT* pAngle);
+	[id(462), local] HRESULT TabDeviationDetectionHoughAlgoHelp([out, retval]BSTR* pHelpStr);
+
+	
+};
+
+[
+	uuid(A66848F0-7270-4945-8EB1-C5CCFC6CA6CC),
+	version(1.0),
+]
+library EoeAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(2B5AEFC9-EA40-4F76-8064-E72C3425C4D9)		
+	]
+	coclass EoeAlgo
+	{
+		[default] interface IEoeAlgo;
+	};
+};
+

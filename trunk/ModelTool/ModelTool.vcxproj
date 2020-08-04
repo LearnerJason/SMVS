@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9A332FC6-83F9-4D3A-82D2-942513AAC11F}</ProjectGuid>
+    <RootNamespace>ModelTool</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(BOOST_ROOT);$(HALCONROOT)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(HALCONROOT)/lib/x64-win64;$(BOOST_ROOT)\stage_x64_vs2010\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(BOOST_ROOT);$(HALCONROOT)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(HALCONROOT)/lib/x64-win64;$(BOOST_ROOT)\stage_x64_vs2010\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4005;4996</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(HALCONROOT)/lib/x64-win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(HALCONROOT)\lib\x64-win64\halconcpp10.lib;$(BOOST_ROOT)\stage_x64_vs2010\lib\libboost_thread-vc100-mt-gd-1_55.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4005;4996</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(HALCONROOT)/lib/x64-win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(HALCONROOT)\lib\x64-win64\halconcpp10.lib;$(BOOST_ROOT)\stage_x64_vs2010\lib\libboost_thread-vc100-mt-gd-1_55.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\background image.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\channel.png" />
+    <None Include="res\ch_close.bmp" />
+    <None Include="res\ch_close.png" />
+    <None Include="res\circle_draw.bmp" />
+    <None Include="res\circle_draw_clicked.bmp" />
+    <None Include="res\circle_sel.bmp" />
+    <None Include="res\circle_select.png" />
+    <None Include="res\circle_sel_clicked.bmp" />
+    <None Include="res\difference.bmp" />
+    <None Include="res\difference_clicked.bmp" />
+    <None Include="res\difference_disabled.bmp" />
+    <None Include="res\ellipse_draw.bmp" />
+    <None Include="res\ellipse_draw_clicked.bmp" />
+    <None Include="res\ellipse_sel.bmp" />
+    <None Include="res\ellipse_sel_clicked.bmp" />
+    <None Include="res\enlarge.bmp" />
+    <None Include="res\ModelTool.ico" />
+    <None Include="res\ModelTool.rc2" />
+    <None Include="res\move_down.bmp" />
+    <None Include="res\move_left.bmp" />
+    <None Include="res\move_right.bmp" />
+    <None Include="res\move_up.bmp" />
+    <None Include="res\open_file.bmp" />
+    <None Include="res\polygon_sel.bmp" />
+    <None Include="res\polygon_sel_clicked.bmp" />
+    <None Include="res\polygoon_draw.bmp" />
+    <None Include="res\polygoon_draw_clicked.bmp" />
+    <None Include="res\rectangle_draw.bmp" />
+    <None Include="res\rectangle_draw_clicked.bmp" />
+    <None Include="res\rectangle_sel.bmp" />
+    <None Include="res\rectangle_select.bmp" />
+    <None Include="res\rectangle_sel_clicked.bmp" />
+    <None Include="res\rotate_clockwise.bmp" />
+    <None Include="res\rotate_counter-clockwise.bmp" />
+    <None Include="res\shrink.bmp" />
+    <None Include="res\thumb.png" />
+    <None Include="res\undo.bmp" />
+    <None Include="res\undo_clicked.bmp" />
+    <None Include="res\union.bmp" />
+    <None Include="res\union_clicked.bmp" />
+    <None Include="res\union_disabled.bmp" />
+    <None Include="res\zoom_in.bmp" />
+    <None Include="res\zoom_in_clicked.bmp" />
+    <None Include="res\zoom_out.bmp" />
+    <None Include="res\zoom_out_clicked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileMappingProxy.h" />
+    <ClInclude Include="LabelCtrl.h" />
+    <ClInclude Include="memdc.h" />
+    <ClInclude Include="ModelTool.h" />
+    <ClInclude Include="ModelToolDlg.h" />
+    <ClInclude Include="RangeSlider.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ui_decorator.h" />
+    <ClInclude Include="utf8conv.h" />
+    <ClInclude Include="utf8conv_inl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LabelCtrl.cpp" />
+    <ClCompile Include="ModelTool.cpp" />
+    <ClCompile Include="ModelToolDlg.cpp" />
+    <ClCompile Include="RangeSlider.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ModelTool.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ModelTool.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

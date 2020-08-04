@@ -1,0 +1,26 @@
+HKCR
+{
+	PetAlgo.1 = s 'PetAlgo Class'
+	{
+		CLSID = s '{BE648697-B4B6-4651-B833-23538C3A6743}'
+	}
+	PetAlgo = s 'PetAlgo Class'
+	{		
+		CurVer = s 'PetAlgo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BE648697-B4B6-4651-B833-23538C3A6743} = s 'PetAlgo Class'
+		{
+		    ProgID = s 'PetAlgo.1'
+			VersionIndependentProgID = s 'PetAlgo'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{424999B7-7613-4957-A551-559381FBA9C9}'
+			Version = s '1.0.0.622'
+		}
+	}
+}

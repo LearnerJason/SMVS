@@ -1,0 +1,26 @@
+HKCR
+{
+	CrownCapAlgo.1 = s 'CrownCapAlgo Class'
+	{
+		CLSID = s '{56AAE5FE-FE04-4A8F-83DF-A2DABE7BCFBC}'
+	}
+	CrownCapAlgo = s 'CrownCapAlgo Class'
+	{		
+		CurVer = s 'CrownCapAlgo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {56AAE5FE-FE04-4A8F-83DF-A2DABE7BCFBC} = s 'CrownCapAlgo Class'
+		{
+			ProgID = s 'CrownCapAlgo.1'
+			VersionIndependentProgID = s 'CrownCapAlgo'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{C212120A-98F3-41F3-9ECF-BC016F5948F3}'
+			Version = s '1.0.0.622'
+		}
+	}
+}

@@ -1,0 +1,30 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(19B6B16D-E776-462B-9787-E962E11AC5DC),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IJellyAlgo : IDispatch
+{
+};
+
+[
+	uuid(A7CB477C-BAC6-4956-8C71-9D052286D1CA),
+	version(1.0),
+]
+library JellyAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(A7066785-70AF-4C33-BE9F-F34057E4574B)		
+	]
+	coclass JellyAlgo
+	{
+		[default] interface IJellyAlgo;
+	};
+};
+

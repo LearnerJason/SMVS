@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {742148EA-EFB5-4125-92D6-F099E736687E} = s 'HdpeAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{A05D70C6-C41C-4F4F-A86E-457D9429A907}'
+			Version = s '1.0'
+		}
+	}
+}

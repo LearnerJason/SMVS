@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="LabelCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RangeSlider.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelTool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelToolDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileMappingProxy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="memdc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelTool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelToolDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RangeSlider.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_decorator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8conv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8conv_inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\background image.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\enlarge.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\channel.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\circle_draw.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\circle_draw_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\circle_sel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\circle_sel_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\circle_select.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\difference.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\difference_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\difference_disabled.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ellipse_draw.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ellipse_draw_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ellipse_sel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ellipse_sel_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\move_down.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\polygoon_draw_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\move_left.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\move_right.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\move_up.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\open_file.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\polygon_sel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\polygon_sel_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\polygoon_draw.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rectangle_draw.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rectangle_select.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rectangle_draw_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rectangle_sel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rectangle_sel_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rotate_clockwise.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\shrink.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\rotate_counter-clockwise.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\undo.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\union_disabled.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\undo_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\union.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\union_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\zoom_in.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\zoom_out_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\zoom_in_clicked.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\zoom_out.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ModelTool.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ModelTool.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\thumb.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ch_close.png" />
+    <None Include="res\ch_close.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{4dfe5b4c-e1e1-4588-8fbc-4be2f3e7cda7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{b2056cbf-e892-46b3-937f-75236adb6e91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{1f851f9f-090d-448b-b3c9-60a0cf9b950f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ModelTool.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

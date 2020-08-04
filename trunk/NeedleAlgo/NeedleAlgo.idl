@@ -1,0 +1,112 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(063C3DF2-2B90-483C-BB1D-7CC34715BDB3),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface INeedleAlgo : IDispatch{
+	[id(1), local] HRESULT SetCurrentImage([in] LONG* pImg);
+	[id(2), local] HRESULT GetRegion([in] BYTE rgnID, [in,out] LONG* pRgn);
+	[id(3), local] HRESULT GetErrorRegion([in] BYTE rgnID, [in,out] LONG* pErrorRgn);
+	[id(4), local] HRESULT GetInternalStats([in] BYTE rgnID, [in] LONG nMaxLen, [out, size_is(nMaxLen)] FLOAT* pStatsArray, [in, out] LONG* nActualLen);	
+	[id(5), local] HRESULT ReloadExternalFile([in] BSTR* bstrPath);
+	[id(6), local] HRESULT SetCurrentTaskName([in] BSTR* bstrTaskName);
+	[id(7), local] HRESULT SetSelfLearningTargetTaskName([in] BSTR* bstrTaskName);
+	[id(8), local] HRESULT GetGlueInjectorID([in,out] LONG* pInjectorID);
+	// Trainning 
+	[id(9), local] HRESULT SetSelfLearningParam([in] DWORD sampleSz, [in] BSTR* bstrParam);
+	[id(10), local] HRESULT SelectModelImage([in] LONG* pCrtImg, [in] BYTE productID);
+	[id(11), local] HRESULT DeleteModelImage([in] BYTE nIndex, [in] BYTE productID);
+	[id(12), local] HRESULT SaveResult([in] BSTR* strModelName, [in] BYTE productID);
+	[id(13), local] HRESULT AddModelImage([in] LONG* pImg, [in] BSTR* strFolder, [in] BYTE productID);
+	[id(14), local] HRESULT GetSelfLearningResult([in,out] LONG*  multiModelImag, [in, out] long* cMax, [in,out] float* vImgScore, [in] BYTE productID);
+	[id(15), local] HRESULT ResetSelfLearningRegion([in] BSTR* strRegionExtractPara);
+	[id(16), local] HRESULT GetSelfLearningRegion([in,out] LONG* pRgn);
+	[id(17), local] HRESULT ResetSelfLearningProcedure(void);
+
+	//NeedleAlgo
+	[id(26), local] HRESULT BeltSideCenterLocationAlgo([in] VARIANT* rgnID ,[in] VARIANT* pRowStart,[in] VARIANT* pColStart,[in] VARIANT* pRegWidth,[in] VARIANT* pRegHeight,[in]VARIANT* pThredLower,[in] VARIANT* pThredUpper,[in]VARIANT* pClosingSize);
+	[id(27), local] HRESULT BeltSideCenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(28), local] HRESULT MidDetectRegionLocationAlgo([in]VARIANT* rgnId,[in]VARIANT* pErosionSize,[in]VARIANT* pOffset,[in]VARIANT* pClipSwitch,[in]VARIANT* pMovedSize);
+	[id(29), local] HRESULT MidDetectRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(30), local] HRESULT AberrationDetectAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(31), local] HRESULT AberrationDetectAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(32), local] HRESULT CurveDetectionAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(33), local] HRESULT CurveDetectionAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(34), local] HRESULT SideDynThresholdAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(35), local] HRESULT SideDynThresholdAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(36), local] HRESULT LengthDetectionAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(37), local] HRESULT LengthDetectionAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(38), local] HRESULT HeadDetectRegionLocationAlgo([in]VARIANT* rgnId,[in]VARIANT* pErosionSize,[in]VARIANT* pOffset,[in]VARIANT* pClipSwitch);
+	[id(39), local] HRESULT HeadDetectRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(40), local] HRESULT SideCenterLocationAlgo([in] VARIANT* rgnID ,[in] VARIANT* pRowStart,[in] VARIANT* pColStart,[in] VARIANT* pRegWidth,[in] VARIANT* pRegHeight,[in] VARIANT* pThredUpper);
+	[id(41), local] HRESULT SideCenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	[id(42),local] HRESULT CircleRegionLocationAlgo([in] VARIANT* rgnId, [in] VARIANT* pRadius, [in] VARIANT* pRoiWidth);
+	[id(43),local] HRESULT CircleRegionLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+	/*[id(42), local] HRESULT ConcaveDetectAlgo([in]VARIANT* rgnId, [in]VARIANT* pClosingSize, [in]VARIANT* pOpeningSize,[in]VARIANT* pLimitArea,[out,retval]VARIANT* pDetectArea);
+	[id(43), local] HRESULT ConcaveDetectAlgoHelp([out,retval]BSTR* pHelpStr);*/
+
+	[id(44), local] HRESULT ConcaveDetectAlgo1([in]VARIANT* rgnId, [in]VARIANT* pNumPart, [in]VARIANT* pThresholdValue,[out,retval]VARIANT* pDetectArea);
+	[id(45), local] HRESULT ConcaveDetectAlgo1Help([out,retval]BSTR* pHelpStr);
+
+	[id(46), local] HRESULT EndCenterLocationAlgo([in] VARIANT* rgnID ,[in] VARIANT* pRowStart,[in] VARIANT* pColStart,[in] VARIANT* pRegWidth,[in] VARIANT* pRegHeight,[in]VARIANT* pGrayValue,[in]VARIANT* pLowerValue,[in]VARIANT* pUpValue,[in]VARIANT* pBigRadius,[in]VARIANT* pSmallRadius);
+	[id(47), local] HRESULT EndCenterLocationAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(48), local] HRESULT EndFaceRegionLocationAlgo([in] VARIANT* rgnId,[in] VARIANT* pMeanSize,[in] VARIANT* pDynThresholdValue,[in] VARIANT* pInnerRadius,[in] VARIANT* pAreaLimitLower,[in]VARIANT* pAreaLimitUpper,[in] VARIANT* pCircularity,[in] VARIANT* pErosionSize);
+	[id(49), local] HRESULT EndFaceRegionLocationAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(50), local] HRESULT SolidDetectAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(51), local] HRESULT SolidDetectAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(52), local] HRESULT AnnularRotaDynThresholdAlgo([in] VARIANT* rgnId, [in]VARIANT* pRotaAngle,[in] VARIANT* pDynThresh, [in] VARIANT* pDefectSize, [out,retval] VARIANT* pDetectArea);
+	[id(53), local] HRESULT AnnularRotaDynThresholdAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(54), local] HRESULT DerivateGaussDetectAlgo([in] VARIANT* rgnId, [in] VARIANT* pMaskSize,[in] VARIANT* pSmoothSize, [in] VARIANT* pDefectType, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(55), local] HRESULT DerivateGaussDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(56), local] HRESULT EndDynThresholdAlgo([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(57), local] HRESULT EndDynThresholdAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(58), local] HRESULT EccentricityDetectAlgo([in]VARIANT* rgnId, [out,retval]VARIANT* pDetectArea);
+	[id(59), local] HRESULT EccentricityDetectAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(60), local] HRESULT ExtraMaterialRegionLocationAlgo([in] VARIANT* rgnId,[in] VARIANT* pInnerEdge,[in] VARIANT* pOutEdge,[in] VARIANT* pBeltEdge);
+	[id(61), local] HRESULT ExtraMaterialRegionLocationAlgoHelp([out,retval]BSTR* pHelpStr);
+
+	[id(62), local] HRESULT ExtraMaterialDetectAlgo([in] VARIANT* rgnId, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(63), local] HRESULT ExtraMaterialDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+
+	[id(64), local] HRESULT EndDynThresholdAlgo1([in] VARIANT* rgnId, [in] VARIANT* pBlackMaskSize, [in] VARIANT* pSeriousBlackPointDynThresh, [in] VARIANT* pSeriousBlackPointSize, [in] VARIANT* pWhiteMaskSize, [in] VARIANT* pSeriousWhitePointDynThresh, [in] VARIANT* pSeriousWhitePointSize, [out,retval] VARIANT* pDetectArea);
+	[id(65), local] HRESULT EndDynThresholdAlgo1Help([out,retval] BSTR* pHelpStr);
+
+	[id(66), local] HRESULT EndOpeningGapDetectAlgo([in] VARIANT* rgnId, [in] VARIANT* pWhiteOrBlack, [in]VARIANT* pThresholdValue, [in] VARIANT* pWidthMinSize, [in] VARIANT* pWidthMaxSize, [in] VARIANT* pHeightMinSize, [in] VARIANT* pHeightMaxSize, [out,retval] VARIANT* pDetectWidth);
+	[id(67), local] HRESULT EndOpeningGapDetectAlgoHelp([out,retval] BSTR* pHelpStr);
+
+};
+[
+	uuid(0A394B75-42C3-42C0-9C1A-BC8ED9FF5E76),
+	version(1.0),
+]
+library NeedleAlgoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(99676163-E34D-419E-9577-B3569A6DA23F)		
+	]
+	coclass NeedleAlgo
+	{
+		[default] interface INeedleAlgo;
+	};
+};
+
