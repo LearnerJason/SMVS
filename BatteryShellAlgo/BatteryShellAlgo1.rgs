@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {6A0C10CA-4D87-46CB-B4DE-D341D46E2B6B} = s 'BatteryShellAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{B1F13C78-6454-4217-87DE-6C45ECAED549}'
+			Version = s '1.0'
+		}
+	}
+}

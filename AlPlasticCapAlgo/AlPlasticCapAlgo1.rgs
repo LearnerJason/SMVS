@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {2B5AEFC9-EA40-4F76-8064-E72C3425C4D9} = s 'AlPlasticCapAlgo Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{A66848F0-7270-4945-8EB1-C5CCFC6CA6CC}'
+			Version = s '1.0'
+		}
+	}
+}
